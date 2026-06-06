@@ -1,0 +1,3239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German A1 Learning - For Pakistani Students</title>
+    <style>
+        /* =========================================
+           MOBILE-FIRST RESPONSIVE CSS
+        ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* safe area for notch phones */
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px;
+        }
+
+        /* ---- HEADER ---- */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 0;
+        }
+
+        header h1 {
+            font-size: clamp(1.3em, 5vw, 2.5em);
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.3;
+        }
+
+        header p {
+            font-size: clamp(0.9em, 3vw, 1.2em);
+            opacity: 0.9;
+        }
+
+        /* ---- NAVIGATION — HORIZONTAL PILL TAB BAR ---- */
+        nav {
+            background: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+
+        /* The scrollable track */
+        .nav-track {
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;          /* Firefox */
+            -ms-overflow-style: none;       /* IE/Edge */
+            padding: 8px 10px;
+            gap: 6px;
+            align-items: center;
+        }
+        .nav-track::-webkit-scrollbar {
+            display: none;                  /* Chrome/Safari */
+        }
+
+        /* Each pill tab */
+        .nav-track a {
+            flex-shrink: 0;                 /* never wrap or compress */
+            color: rgba(255,255,255,0.82);
+            text-decoration: none;
+            padding: 7px 14px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.10);
+            border: 1.5px solid rgba(255,255,255,0.15);
+            font-size: 0.88em;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            letter-spacing: 0.01em;
+        }
+        .nav-track a:hover {
+            background: rgba(102,126,234,0.55);
+            color: #fff;
+            border-color: rgba(102,126,234,0.7);
+        }
+        /* Active pill — solid fill */
+        .nav-track a.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 2px 10px rgba(102,126,234,0.50);
+            font-weight: 700;
+        }
+
+        /* Fade edges to hint at more content */
+        nav::before,
+        nav::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 28px;
+            pointer-events: none;
+            z-index: 2;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+        }
+        /* left fade */
+        .nav-fade-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 24px;
+            background: linear-gradient(to right, #2c3e50, transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+        /* right fade */
+        .nav-fade-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 24px;
+            background: linear-gradient(to left, #2c3e50, transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Make nav a positioned container for the fade overlays */
+        nav {
+            position: sticky;
+            top: 0;
+            isolation: isolate;
+        }
+
+        /* ---- SECTIONS ---- */
+        .section {
+            background: white;
+            margin: 16px 0;
+            padding: 20px 14px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: clamp(1.2em, 4vw, 2em);
+            line-height: 1.3;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            margin: 20px 0 12px 0;
+            font-size: clamp(1em, 3.5vw, 1.5em);
+            border-left: 4px solid #764ba2;
+            padding-left: 12px;
+            line-height: 1.4;
+        }
+
+        .section h4 {
+            color: #2c3e50;
+            margin: 16px 0 8px 0;
+            font-size: clamp(0.95em, 3vw, 1.2em);
+        }
+
+        /* ---- TABLES - MOBILE HORIZONTAL SCROLL ---- */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 16px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+            /* subtle scroll hint gradient */
+            background:
+                linear-gradient(to right, white 30%, rgba(255,255,255,0)),
+                linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%,
+                radial-gradient(farthest-side at 0 50%, rgba(0,0,0,.08), rgba(0,0,0,0)),
+                radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.08), rgba(0,0,0,0)) 0 100%;
+            background-repeat: no-repeat;
+            background-color: white;
+            background-size: 40px 100%, 40px 100%, 12px 100%, 12px 100%;
+            background-position: 0 0, 100%, 0 0, 100%;
+            background-attachment: local, local, scroll, scroll;
+        }
+
+        table {
+            width: 100%;
+            min-width: 480px;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        table td {
+            padding: 10px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.92em;
+            vertical-align: top;
+        }
+
+        table tr:hover {
+            background: #f8f9fa;
+        }
+
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        table tr:nth-child(even):hover {
+            background: #f0f2f5;
+        }
+
+        /* Scroll hint label */
+        .scroll-hint {
+            display: none;
+            font-size: 0.75em;
+            color: #888;
+            text-align: right;
+            margin-bottom: 4px;
+            padding-right: 4px;
+        }
+
+        /* ---- TEXT STYLES ---- */
+        .pronunciation {
+            color: #e74c3c;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .english {
+            color: #27ae60;
+        }
+
+        .urdu {
+            color: #2980b9;
+            font-family: 'Jameel Noori Nastaleeq', 'Noto Nastalikh Urdu', Arial;
+            direction: rtl;
+            font-size: 1.1em;
+        }
+
+        .example {
+            background: #e8f5e9;
+            padding: 12px;
+            border-left: 4px solid #4caf50;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 12px;
+            border-left: 4px solid #ffc107;
+            margin: 12px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .tip {
+            background: #d1ecf1;
+            padding: 12px;
+            border-left: 4px solid #17a2b8;
+            margin: 12px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .vocab-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        /* ---- BACK TO TOP ---- */
+        .back-to-top {
+            position: fixed;
+            bottom: calc(20px + env(safe-area-inset-bottom));
+            right: 20px;
+            background: #667eea;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(102,126,234,0.5);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 22px;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            background: #764ba2;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top.visible {
+            display: flex;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 24px 15px;
+            padding-bottom: calc(24px + env(safe-area-inset-bottom));
+            margin-top: 30px;
+        }
+
+        /* ---- GRID / CARDS ---- */
+        .conjugation-table {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .highlight {
+            background: yellow;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        ul.content-list {
+            margin: 12px 0;
+            padding-left: 22px;
+        }
+
+        ul.content-list li {
+            margin: 8px 0;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #667eea;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 28px;
+            background: #e0e0e0;
+            border-radius: 14px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* =========================================
+           MOBILE BREAKPOINTS
+        ========================================= */
+
+        /* Small phones */
+        @media (max-width: 480px) {
+            .container {
+                padding: 8px;
+            }
+
+            .section {
+                padding: 14px 10px;
+                margin: 10px 0;
+                border-radius: 8px;
+            }
+
+            header {
+                padding: 16px 12px;
+            }
+
+            table {
+                font-size: 0.82em;
+            }
+
+            table th, table td {
+                padding: 8px 7px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .scroll-hint {
+                display: block;
+            }
+        }
+
+        /* Tablets & phones — pill bar already handles everything.
+           Just tighten section padding. */
+        @media (max-width: 768px) {
+            .section {
+                padding: 18px 12px;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            footer h3 {
+                font-size: 1.1em;
+            }
+            /* Slightly larger pills on phone for easier tapping */
+            .nav-track a {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Desktop — pills can wrap to two lines if needed */
+        @media (min-width: 769px) {
+            .nav-track {
+                flex-wrap: wrap;
+                overflow-x: visible;
+                padding: 10px 16px;
+                gap: 8px;
+            }
+            .nav-fade-left,
+            .nav-fade-right {
+                display: none; /* no fade needed when fully visible */
+            }
+            .container {
+                padding: 20px;
+            }
+            .section {
+                padding: 30px;
+                margin: 24px 0;
+            }
+        }
+
+        /* =========================================
+           MOBILE TABLE → CARD CONVERSION
+        ========================================= */
+        .mobile-cards {
+            display: none; /* hidden on desktop */
+        }
+
+        @media (max-width: 768px) {
+            /* Hide original table, show cards */
+            table.table-converted {
+                display: none !important;
+            }
+            .mobile-cards {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin: 12px 0;
+            }
+        }
+
+        /* Each row becomes a card */
+        .row-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+            overflow: hidden;
+            border: 1px solid #e8eaf0;
+            transition: box-shadow 0.2s;
+        }
+        .row-card:active {
+            box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+        }
+
+        /* Top banner: German word */
+        .row-card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 13px 16px 11px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .row-card-german {
+            font-size: 1.2em;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        .row-card-article {
+            background: rgba(255,255,255,0.22);
+            border-radius: 4px;
+            padding: 2px 7px;
+            font-size: 0.8em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Fields below the header */
+        .row-card-body {
+            padding: 10px 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+        .row-card-field {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.93em;
+            line-height: 1.5;
+        }
+        .row-card-label {
+            min-width: 88px;
+            font-size: 0.75em;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding-top: 2px;
+            flex-shrink: 0;
+        }
+        .row-card-value {
+            flex: 1;
+            color: #333;
+        }
+        .row-card-value.pronunciation {
+            color: #e74c3c;
+            font-weight: bold;
+            font-style: italic;
+            background: none;
+        }
+        .row-card-value.english {
+            color: #27ae60;
+            font-weight: 600;
+            background: none;
+        }
+        .row-card-value.urdu {
+            color: #2980b9;
+            font-family: 'Jameel Noori Nastaleeq', 'Noto Nastalikh Urdu', Arial;
+            font-size: 1.15em;
+            direction: rtl;
+            text-align: right;
+            background: none;
+        }
+        .row-card-value.example {
+            background: #e8f5e9;
+            border-left: 3px solid #4caf50;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #2d5a2d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🇩🇪 German A1 Learning Website 🇵🇰</h1>
+            <p>For Pakistani Students | Urdu & English</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">پاکستانی طلباء کے لیے جرمن زبان کی تعلیم</p>
+        </div>
+    </header>
+
+    <nav id="mainNav">
+        <!-- Fade edge overlays (hint more items exist) -->
+        <div class="nav-fade-left"></div>
+        <div class="nav-fade-right"></div>
+        <!-- Single horizontal scrollable pill track -->
+        <div class="nav-track" id="navTrack" role="navigation" aria-label="Section navigation">
+            <a href="#section1" data-section="section1">📖 Vocabulary</a>
+            <a href="#section2" data-section="section2">👤 Pronouns</a>
+            <a href="#section3" data-section="section3">🔗 Possessive</a>
+            <a href="#section4" data-section="section4">📌 Articles</a>
+            <a href="#section5" data-section="section5">⚡ Verbs</a>
+            <a href="#section6" data-section="section6">🎯 Modal Verbs</a>
+            <a href="#section7" data-section="section7">🙋 Introduction</a>
+            <a href="#section8" data-section="section8">💬 Phrases</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- SECTION 1: VOCABULARY -->
+        <div id="section1" class="section">
+            <h2>SECTION 1: BASIC VOCABULARY (روزمرہ کی بنیادی الفاظ)</h2>
+            
+            <h3>1.1 Greetings & Polite Words (سلام و تحیات)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hallo</strong></td>
+                        <td class="pronunciation">HAH-loh</td>
+                        <td class="english">Hello</td>
+                        <td class="urdu">ہیلو</td>
+                        <td>Hallo, wie geht's? <br><small>(Hello, how are you? / ہیلو، کیسے ہو؟)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Guten Morgen</strong></td>
+                        <td class="pronunciation">GOO-ten MOR-gen</td>
+                        <td class="english">Good Morning</td>
+                        <td class="urdu">صبح بخیر</td>
+                        <td>Guten Morgen, Herr Müller! <br><small>(Good morning, Mr. Müller! / صبح بخیر، مسٹر مولر!)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Guten Tag</strong></td>
+                        <td class="pronunciation">GOO-ten TAHK</td>
+                        <td class="english">Good Day</td>
+                        <td class="urdu">السلام علیکم</td>
+                        <td>Guten Tag! Wie heißen Sie? <br><small>(Good day! What's your name? / السلام علیکم! آپ کا نام؟)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Guten Abend</strong></td>
+                        <td class="pronunciation">GOO-ten AH-bent</td>
+                        <td class="english">Good Evening</td>
+                        <td class="urdu">شام بخیر</td>
+                        <td>Guten Abend, meine Freunde! <br><small>(Good evening, my friends! / شام بخیر، میرے دوست!)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gute Nacht</strong></td>
+                        <td class="pronunciation">GOO-teh NAKHT</td>
+                        <td class="english">Good Night</td>
+                        <td class="urdu">شب بخیر</td>
+                        <td>Gute Nacht, schlaf gut! <br><small>(Good night, sleep well! / شب بخیر، اچھی نیند!)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tschüss</strong></td>
+                        <td class="pronunciation">CHOOS</td>
+                        <td class="english">Bye</td>
+                        <td class="urdu">الوداع</td>
+                        <td>Tschüss, bis morgen! <br><small>(Bye, see you tomorrow! / الوداع، کل ملیں گے!)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Auf Wiedersehen</strong></td>
+                        <td class="pronunciation">owf VEE-der-zay-en</td>
+                        <td class="english">Goodbye</td>
+                        <td class="urdu">خدا حافظ</td>
+                        <td>Auf Wiedersehen, Frau Schmidt! <br><small>(Goodbye, Mrs. Schmidt! / خدا حافظ، محترمہ!)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Danke</strong></td>
+                        <td class="pronunciation">DAHN-keh</td>
+                        <td class="english">Thank you</td>
+                        <td class="urdu">شکریہ</td>
+                        <td>Danke für deine Hilfe! <br><small>(Thank you for your help! / آپ کی مدد کا شکریہ!)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bitte</strong></td>
+                        <td class="pronunciation">BIT-teh</td>
+                        <td class="english">Please/You're welcome</td>
+                        <td class="urdu">براہ کرم/کوئی بات نہیں</td>
+                        <td>Bitte sehr! <br><small>(You're welcome! / کوئی بات نہیں!)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Entschuldigung</strong></td>
+                        <td class="pronunciation">ent-SHOOL-dee-goong</td>
+                        <td class="english">Excuse me/Sorry</td>
+                        <td class="urdu">معافی</td>
+                        <td>Entschuldigung, wo ist der Bahnhof? <br><small>(Excuse me, where is the train station? / معذرت، ٹرین سٹیشن کہاں ہے؟)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.2 Family Members (خاندان کے افراد)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Article</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mutter</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">MOO-ter</td>
+                        <td class="english">Mother</td>
+                        <td class="urdu">ماں</td>
+                        <td>Die Mutter kocht das Essen. <br><small>(The mother cooks the food. / ماں کھانا پکاتی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vater</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">FAH-ter</td>
+                        <td class="english">Father</td>
+                        <td class="urdu">باپ</td>
+                        <td>Der Vater arbeitet im Büro. <br><small>(The father works in the office. / باپ دفتر میں کام کرتا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eltern</strong></td>
+                        <td>die (plural)</td>
+                        <td class="pronunciation">EL-tern</td>
+                        <td class="english">Parents</td>
+                        <td class="urdu">والدین</td>
+                        <td>Die Eltern sind zu Hause. <br><small>(The parents are at home. / والدین گھر پر ہیں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bruder</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">BROO-der</td>
+                        <td class="english">Brother</td>
+                        <td class="urdu">بھائی</td>
+                        <td>Mein Bruder ist Student. <br><small>(My brother is a student. / میرا بھائی طالب علم ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Schwester</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">SHVES-ter</td>
+                        <td class="english">Sister</td>
+                        <td class="urdu">بہن</td>
+                        <td>Meine Schwester heißt Sarah. <br><small>(My sister is called Sarah. / میری بہن کا نام سارہ ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sohn</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">ZOHN</td>
+                        <td class="english">Son</td>
+                        <td class="urdu">بیٹا</td>
+                        <td>Der Sohn spielt Fußball. <br><small>(The son plays football. / بیٹا فٹبال کھیلتا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tochter</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">TOKH-ter</td>
+                        <td class="english">Daughter</td>
+                        <td class="urdu">بیٹی</td>
+                        <td>Die Tochter lernt Deutsch. <br><small>(The daughter learns German. / بیٹی جرمن سیکھتی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Großmutter/Oma</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">GROHS-moo-ter/OH-mah</td>
+                        <td class="english">Grandmother</td>
+                        <td class="urdu">دادی/نانی</td>
+                        <td>Die Oma backt Kuchen. <br><small>(Grandma bakes cake. / دادی کیک بناتی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Großvater/Opa</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">GROHS-fah-ter/OH-pah</td>
+                        <td class="english">Grandfather</td>
+                        <td class="urdu">دادا/نانا</td>
+                        <td>Der Opa liest die Zeitung. <br><small>(Grandpa reads the newspaper. / دادا اخبار پڑھتا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mann</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">MAHN</td>
+                        <td class="english">Husband</td>
+                        <td class="urdu">شوہر</td>
+                        <td>Der Mann ist Arzt. <br><small>(The husband is a doctor. / شوہر ڈاکٹر ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frau</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">FROW</td>
+                        <td class="english">Wife</td>
+                        <td class="urdu">بیوی</td>
+                        <td>Die Frau ist Lehrerin. <br><small>(The wife is a teacher. / بیوی ٹیچر ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kind</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">KINT</td>
+                        <td class="english">Child</td>
+                        <td class="urdu">بچہ</td>
+                        <td>Das Kind ist klein. <br><small>(The child is small. / بچہ چھوٹا ہے۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.3 Numbers (نمبر)</h3>
+            <h4>Cardinal Numbers 0-20</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>null</strong></td><td class="pronunciation">NOOL</td><td class="english">zero</td><td class="urdu">صفر</td></tr>
+                    <tr><td><strong>eins</strong></td><td class="pronunciation">EYENS</td><td class="english">one</td><td class="urdu">ایک</td></tr>
+                    <tr><td><strong>zwei</strong></td><td class="pronunciation">TSVEY</td><td class="english">two</td><td class="urdu">دو</td></tr>
+                    <tr><td><strong>drei</strong></td><td class="pronunciation">DREY</td><td class="english">three</td><td class="urdu">تین</td></tr>
+                    <tr><td><strong>vier</strong></td><td class="pronunciation">FEER</td><td class="english">four</td><td class="urdu">چار</td></tr>
+                    <tr><td><strong>fünf</strong></td><td class="pronunciation">FOONF</td><td class="english">five</td><td class="urdu">پانچ</td></tr>
+                    <tr><td><strong>sechs</strong></td><td class="pronunciation">ZEKS</td><td class="english">six</td><td class="urdu">چھے</td></tr>
+                    <tr><td><strong>sieben</strong></td><td class="pronunciation">ZEE-ben</td><td class="english">seven</td><td class="urdu">سات</td></tr>
+                    <tr><td><strong>acht</strong></td><td class="pronunciation">AKHT</td><td class="english">eight</td><td class="urdu">آٹھ</td></tr>
+                    <tr><td><strong>neun</strong></td><td class="pronunciation">NOYN</td><td class="english">nine</td><td class="urdu">نو</td></tr>
+                    <tr><td><strong>zehn</strong></td><td class="pronunciation">TSAYN</td><td class="english">ten</td><td class="urdu">دس</td></tr>
+                    <tr><td><strong>elf</strong></td><td class="pronunciation">ELF</td><td class="english">eleven</td><td class="urdu">گیارہ</td></tr>
+                    <tr><td><strong>zwölf</strong></td><td class="pronunciation">TSVOLF</td><td class="english">twelve</td><td class="urdu">بارہ</td></tr>
+                    <tr><td><strong>dreizehn</strong></td><td class="pronunciation">DREY-tsayn</td><td class="english">thirteen</td><td class="urdu">تیرہ</td></tr>
+                    <tr><td><strong>vierzehn</strong></td><td class="pronunciation">FEER-tsayn</td><td class="english">fourteen</td><td class="urdu">چودہ</td></tr>
+                    <tr><td><strong>fünfzehn</strong></td><td class="pronunciation">FOONF-tsayn</td><td class="english">fifteen</td><td class="urdu">پندرہ</td></tr>
+                    <tr><td><strong>sechzehn</strong></td><td class="pronunciation">ZEKH-tsayn</td><td class="english">sixteen</td><td class="urdu">سولہ</td></tr>
+                    <tr><td><strong>siebzehn</strong></td><td class="pronunciation">ZEEP-tsayn</td><td class="english">seventeen</td><td class="urdu">سترہ</td></tr>
+                    <tr><td><strong>achtzehn</strong></td><td class="pronunciation">AKHT-tsayn</td><td class="english">eighteen</td><td class="urdu">اٹھارہ</td></tr>
+                    <tr><td><strong>neunzehn</strong></td><td class="pronunciation">NOYN-tsayn</td><td class="english">nineteen</td><td class="urdu">انیس</td></tr>
+                    <tr><td><strong>zwanzig</strong></td><td class="pronunciation">TSVAN-tsikh</td><td class="english">twenty</td><td class="urdu">بیس</td></tr>
+                </tbody>
+            </table>
+
+            <h4>Tens (دہائی)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>dreißig</strong></td><td class="pronunciation">DREY-sikh</td><td class="english">thirty</td><td class="urdu">تیس</td></tr>
+                    <tr><td><strong>vierzig</strong></td><td class="pronunciation">FEER-tsikh</td><td class="english">forty</td><td class="urdu">چالیس</td></tr>
+                    <tr><td><strong>fünfzig</strong></td><td class="pronunciation">FOONF-tsikh</td><td class="english">fifty</td><td class="urdu">پچاس</td></tr>
+                    <tr><td><strong>sechzig</strong></td><td class="pronunciation">ZEKH-tsikh</td><td class="english">sixty</td><td class="urdu">ساٹھ</td></tr>
+                    <tr><td><strong>siebzig</strong></td><td class="pronunciation">ZEEP-tsikh</td><td class="english">seventy</td><td class="urdu">ستر</td></tr>
+                    <tr><td><strong>achtzig</strong></td><td class="pronunciation">AKHT-tsikh</td><td class="english">eighty</td><td class="urdu">اسی</td></tr>
+                    <tr><td><strong>neunzig</strong></td><td class="pronunciation">NOYN-tsikh</td><td class="english">ninety</td><td class="urdu">نوے</td></tr>
+                    <tr><td><strong>hundert</strong></td><td class="pronunciation">HOON-dert</td><td class="english">hundred</td><td class="urdu">سو</td></tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>Example Sentences:</strong><br>
+                • Ich habe zwei Brüder. (I have two brothers. / میرے دو بھائی ہیں۔)<br>
+                • Sie ist zwanzig Jahre alt. (She is twenty years old. / وہ بیس سال کی ہے۔)
+            </div>
+
+            <h3>1.4 Days of the Week (ہفتے کے دن)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Article</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Montag</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">MOHN-tahk</td>
+                        <td class="english">Monday</td>
+                        <td class="urdu">پیر</td>
+                        <td>Der Montag ist der erste Tag. <br><small>(Monday is the first day. / پیر پہلا دن ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dienstag</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">DEENS-tahk</td>
+                        <td class="english">Tuesday</td>
+                        <td class="urdu">منگل</td>
+                        <td>Am Dienstag habe ich Deutsch. <br><small>(On Tuesday I have German. / منگل کو میری جرمن کلاس ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mittwoch</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">MIT-vokh</td>
+                        <td class="english">Wednesday</td>
+                        <td class="urdu">بدھ</td>
+                        <td>Mittwoch ist in der Mitte. <br><small>(Wednesday is in the middle. / بدھ درمیان میں ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Donnerstag</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">DON-ers-tahk</td>
+                        <td class="english">Thursday</td>
+                        <td class="urdu">جمعرات</td>
+                        <td>Donnerstag gehe ich einkaufen. <br><small>(Thursday I go shopping. / جمعرات کو میں خریداری کرتا ہوں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Freitag</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">FREY-tahk</td>
+                        <td class="english">Friday</td>
+                        <td class="urdu">جمعہ</td>
+                        <td>Freitag ist mein Lieblingstag. <br><small>(Friday is my favorite day. / جمعہ میرا پسندیدہ دن ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Samstag</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">ZAHMS-tahk</td>
+                        <td class="english">Saturday</td>
+                        <td class="urdu">ہفتہ</td>
+                        <td>Samstag ist Wochenende. <br><small>(Saturday is weekend. / ہفتہ ویک اینڈ ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sonntag</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">ZON-tahk</td>
+                        <td class="english">Sunday</td>
+                        <td class="urdu">اتوار</td>
+                        <td>Sonntag ist Ruhetag. <br><small>(Sunday is rest day. / اتوار آرام کا دن ہے۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.5 Months (مہینے)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Article</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Januar</strong></td><td>der</td><td class="pronunciation">YAH-noo-ar</td><td class="english">January</td><td class="urdu">جنوری</td></tr>
+                    <tr><td><strong>Februar</strong></td><td>der</td><td class="pronunciation">FEH-broo-ar</td><td class="english">February</td><td class="urdu">فروری</td></tr>
+                    <tr><td><strong>März</strong></td><td>der</td><td class="pronunciation">MERTS</td><td class="english">March</td><td class="urdu">مارچ</td></tr>
+                    <tr><td><strong>April</strong></td><td>der</td><td class="pronunciation">ah-PREEL</td><td class="english">April</td><td class="urdu">اپریل</td></tr>
+                    <tr><td><strong>Mai</strong></td><td>der</td><td class="pronunciation">MY</td><td class="english">May</td><td class="urdu">مئی</td></tr>
+                    <tr><td><strong>Juni</strong></td><td>der</td><td class="pronunciation">YOO-nee</td><td class="english">June</td><td class="urdu">جون</td></tr>
+                    <tr><td><strong>Juli</strong></td><td>der</td><td class="pronunciation">YOO-lee</td><td class="english">July</td><td class="urdu">جولائی</td></tr>
+                    <tr><td><strong>August</strong></td><td>der</td><td class="pronunciation">ow-GOOST</td><td class="english">August</td><td class="urdu">اگست</td></tr>
+                    <tr><td><strong>September</strong></td><td>der</td><td class="pronunciation">zep-TEM-ber</td><td class="english">September</td><td class="urdu">ستمبر</td></tr>
+                    <tr><td><strong>Oktober</strong></td><td>der</td><td class="pronunciation">ok-TOH-ber</td><td class="english">October</td><td class="urdu">اکتوبر</td></tr>
+                    <tr><td><strong>November</strong></td><td>der</td><td class="pronunciation">no-VEM-ber</td><td class="english">November</td><td class="urdu">نومبر</td></tr>
+                    <tr><td><strong>Dezember</strong></td><td>der</td><td class="pronunciation">deh-TSEM-ber</td><td class="english">December</td><td class="urdu">دسمبر</td></tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>Example:</strong> Mein Geburtstag ist im Mai. (My birthday is in May. / میری سالگرہ مئی میں ہے۔)
+            </div>
+
+            <h3>1.6 Colors (رنگ)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>rot</strong></td>
+                        <td class="pronunciation">ROHT</td>
+                        <td class="english">red</td>
+                        <td class="urdu">سرخ</td>
+                        <td>Das Auto ist rot. <br><small>(The car is red. / گاڑی سرخ ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>blau</strong></td>
+                        <td class="pronunciation">BLOW</td>
+                        <td class="english">blue</td>
+                        <td class="urdu">نیلا</td>
+                        <td>Der Himmel ist blau. <br><small>(The sky is blue. / آسمان نیلا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>grün</strong></td>
+                        <td class="pronunciation">GROON</td>
+                        <td class="english">green</td>
+                        <td class="urdu">سبز</td>
+                        <td>Das Gras ist grün. <br><small>(The grass is green. / گھاس سبز ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>gelb</strong></td>
+                        <td class="pronunciation">GELP</td>
+                        <td class="english">yellow</td>
+                        <td class="urdu">پیلا</td>
+                        <td>Die Banane ist gelb. <br><small>(The banana is yellow. / کیلا پیلا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>schwarz</strong></td>
+                        <td class="pronunciation">SHVARTS</td>
+                        <td class="english">black</td>
+                        <td class="urdu">کالا</td>
+                        <td>Die Katze ist schwarz. <br><small>(The cat is black. / بلی کالی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>weiß</strong></td>
+                        <td class="pronunciation">VISE</td>
+                        <td class="english">white</td>
+                        <td class="urdu">سفید</td>
+                        <td>Der Schnee ist weiß. <br><small>(The snow is white. / برف سفید ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>grau</strong></td>
+                        <td class="pronunciation">GROW</td>
+                        <td class="english">grey</td>
+                        <td class="urdu">سرمئی</td>
+                        <td>Der Elefant ist grau. <br><small>(The elephant is grey. / ہاتھی سرمئی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>braun</strong></td>
+                        <td class="pronunciation">BROWN</td>
+                        <td class="english">brown</td>
+                        <td class="urdu">بھورا</td>
+                        <td>Der Hund ist braun. <br><small>(The dog is brown. / کتا بھورا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>orange</strong></td>
+                        <td class="pronunciation">oh-RAHN-zheh</td>
+                        <td class="english">orange</td>
+                        <td class="urdu">نارنجی</td>
+                        <td>Die Orange ist orange. <br><small>(The orange is orange. / نارنگی نارنجی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>rosa/pink</strong></td>
+                        <td class="pronunciation">ROH-zah/PINK</td>
+                        <td class="english">pink</td>
+                        <td class="urdu">گلابی</td>
+                        <td>Die Blume ist rosa. <br><small>(The flower is pink. / پھول گلابی ہے۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.7 Common Objects (عام اشیاء)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Article</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tisch</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">TISH</td>
+                        <td class="english">table</td>
+                        <td class="urdu">میز</td>
+                        <td>Der Tisch ist groß. <br><small>(The table is big. / میز بڑی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stuhl</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">SHTOOL</td>
+                        <td class="english">chair</td>
+                        <td class="urdu">کرسی</td>
+                        <td>Der Stuhl ist bequem. <br><small>(The chair is comfortable. / کرسی آرام دہ ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Buch</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">BOOKH</td>
+                        <td class="english">book</td>
+                        <td class="urdu">کتاب</td>
+                        <td>Das Buch ist interessant. <br><small>(The book is interesting. / کتاب دلچسپ ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stift</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">SHTIFT</td>
+                        <td class="english">pen</td>
+                        <td class="urdu">قلم</td>
+                        <td>Der Stift ist blau. <br><small>(The pen is blue. / قلم نیلا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Heft</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">HEFT</td>
+                        <td class="english">notebook</td>
+                        <td class="urdu">کاپی</td>
+                        <td>Das Heft ist neu. <br><small>(The notebook is new. / کاپی نئی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tasche</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">TAH-sheh</td>
+                        <td class="english">bag</td>
+                        <td class="urdu">بیگ</td>
+                        <td>Die Tasche ist schwarz. <br><small>(The bag is black. / بیگ کالا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Telefon</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">teh-leh-FOHN</td>
+                        <td class="english">telephone</td>
+                        <td class="urdu">ٹیلیفون</td>
+                        <td>Das Telefon klingelt. <br><small>(The telephone rings. / ٹیلیفون بج رہا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Computer</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">kom-PYOO-ter</td>
+                        <td class="english">computer</td>
+                        <td class="urdu">کمپیوٹر</td>
+                        <td>Der Computer ist modern. <br><small>(The computer is modern. / کمپیوٹر جدید ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Uhr</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">OOR</td>
+                        <td class="english">clock/watch</td>
+                        <td class="urdu">گھڑی</td>
+                        <td>Die Uhr zeigt drei Uhr. <br><small>(The clock shows three o'clock. / گھڑی تین بجے دکھاتی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fenster</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">FEN-ster</td>
+                        <td class="english">window</td>
+                        <td class="urdu">کھڑکی</td>
+                        <td>Das Fenster ist offen. <br><small>(The window is open. / کھڑکی کھلی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tür</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">TOOR</td>
+                        <td class="english">door</td>
+                        <td class="urdu">دروازہ</td>
+                        <td>Die Tür ist zu. <br><small>(The door is closed. / دروازہ بند ہے۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.8 Food & Drinks (کھانا اور مشروبات)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Article</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Brot</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">BROHT</td>
+                        <td class="english">bread</td>
+                        <td class="urdu">روٹی</td>
+                        <td>Das Brot ist frisch. <br><small>(The bread is fresh. / روٹی تازہ ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wasser</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">VAH-ser</td>
+                        <td class="english">water</td>
+                        <td class="urdu">پانی</td>
+                        <td>Das Wasser ist kalt. <br><small>(The water is cold. / پانی ٹھنڈا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Milch</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">MILKH</td>
+                        <td class="english">milk</td>
+                        <td class="urdu">دودھ</td>
+                        <td>Die Milch ist gesund. <br><small>(The milk is healthy. / دودھ صحت مند ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kaffee</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">KAH-feh</td>
+                        <td class="english">coffee</td>
+                        <td class="urdu">کافی</td>
+                        <td>Der Kaffee ist heiß. <br><small>(The coffee is hot. / کافی گرم ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tee</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">TAY</td>
+                        <td class="english">tea</td>
+                        <td class="urdu">چائے</td>
+                        <td>Der Tee ist süß. <br><small>(The tea is sweet. / چائے میٹھی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Apfel</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">AHP-fel</td>
+                        <td class="english">apple</td>
+                        <td class="urdu">سیب</td>
+                        <td>Der Apfel ist rot. <br><small>(The apple is red. / سیب سرخ ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Banane</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">bah-NAH-neh</td>
+                        <td class="english">banana</td>
+                        <td class="urdu">کیلا</td>
+                        <td>Die Banane ist gelb. <br><small>(The banana is yellow. / کیلا پیلا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reis</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">RICE</td>
+                        <td class="english">rice</td>
+                        <td class="urdu">چاول</td>
+                        <td>Der Reis ist weiß. <br><small>(The rice is white. / چاول سفید ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fleisch</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">FLYSH</td>
+                        <td class="english">meat</td>
+                        <td class="urdu">گوشت</td>
+                        <td>Das Fleisch ist teuer. <br><small>(The meat is expensive. / گوشت مہنگا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gemüse</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">geh-MOO-zeh</td>
+                        <td class="english">vegetables</td>
+                        <td class="urdu">سبزیاں</td>
+                        <td>Das Gemüse ist gesund. <br><small>(The vegetables are healthy. / سبزیاں صحت مند ہیں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ei</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">EYE</td>
+                        <td class="english">egg</td>
+                        <td class="urdu">انڈا</td>
+                        <td>Das Ei ist klein. <br><small>(The egg is small. / انڈا چھوٹا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Käse</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">KAY-zeh</td>
+                        <td class="english">cheese</td>
+                        <td class="urdu">پنیر</td>
+                        <td>Der Käse ist lecker. <br><small>(The cheese is delicious. / پنیر مزیدار ہے۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.9 Places (جگہیں)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Article</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Haus</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">HOWS</td>
+                        <td class="english">house</td>
+                        <td class="urdu">گھر</td>
+                        <td>Das Haus ist groß. <br><small>(The house is big. / گھر بڑا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Schule</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">SHOO-leh</td>
+                        <td class="english">school</td>
+                        <td class="urdu">سکول</td>
+                        <td>Die Schule beginnt um acht. <br><small>(School starts at eight. / سکول آٹھ بجے شروع ہوتا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Krankenhaus</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">KRAHN-ken-hows</td>
+                        <td class="english">hospital</td>
+                        <td class="urdu">ہسپتال</td>
+                        <td>Das Krankenhaus ist neu. <br><small>(The hospital is new. / ہسپتال نیا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Supermarkt</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">ZOO-per-markt</td>
+                        <td class="english">supermarket</td>
+                        <td class="urdu">سپر مارکیٹ</td>
+                        <td>Der Supermarkt ist nah. <br><small>(The supermarket is near. / سپر مارکیٹ قریب ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bank</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">BAHNK</td>
+                        <td class="english">bank</td>
+                        <td class="urdu">بینک</td>
+                        <td>Die Bank öffnet um neun. <br><small>(The bank opens at nine. / بینک نو بجے کھلتا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Restaurant</strong></td>
+                        <td>das</td>
+                        <td class="pronunciation">res-tow-RAHNT</td>
+                        <td class="english">restaurant</td>
+                        <td class="urdu">ریستوراں</td>
+                        <td>Das Restaurant ist teuer. <br><small>(The restaurant is expensive. / ریستوراں مہنگا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahnhof</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">BAHN-hohf</td>
+                        <td class="english">train station</td>
+                        <td class="urdu">ریلوے سٹیشن</td>
+                        <td>Der Bahnhof ist groß. <br><small>(The train station is big. / ریلوے سٹیشن بڑا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Flughafen</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">FLOOK-hah-fen</td>
+                        <td class="english">airport</td>
+                        <td class="urdu">ہوائی اڈہ</td>
+                        <td>Der Flughafen ist weit. <br><small>(The airport is far. / ہوائی اڈہ دور ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Park</strong></td>
+                        <td>der</td>
+                        <td class="pronunciation">PARK</td>
+                        <td class="english">park</td>
+                        <td class="urdu">پارک</td>
+                        <td>Der Park ist schön. <br><small>(The park is beautiful. / پارک خوبصورت ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kirche</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">KEER-kheh</td>
+                        <td class="english">church</td>
+                        <td class="urdu">گرجا</td>
+                        <td>Die Kirche ist alt. <br><small>(The church is old. / گرجا پرانا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Moschee</strong></td>
+                        <td>die</td>
+                        <td class="pronunciation">mo-SHAY</td>
+                        <td class="english">mosque</td>
+                        <td class="urdu">مسجد</td>
+                        <td>Die Moschee ist groß. <br><small>(The mosque is big. / مسجد بڑی ہے۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 2: PERSONAL PRONOUNS -->
+        <div id="section2" class="section">
+            <h2>SECTION 2: PERSONAL PRONOUNS (شخصی ضمیر)</h2>
+            
+            <h3>2.1 Personal Pronouns Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ich</strong></td>
+                        <td class="pronunciation">EEKH</td>
+                        <td class="english">I</td>
+                        <td class="urdu">میں</td>
+                        <td>Ich bin Student. <br><small>(I am a student. / میں طالب علم ہوں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>du</strong></td>
+                        <td class="pronunciation">DOO</td>
+                        <td class="english">you (informal)</td>
+                        <td class="urdu">تم</td>
+                        <td>Du bist nett. <br><small>(You are nice. / تم اچھے ہو۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>er</strong></td>
+                        <td class="pronunciation">AIR</td>
+                        <td class="english">he</td>
+                        <td class="urdu">وہ (مذکر)</td>
+                        <td>Er ist Lehrer. <br><small>(He is a teacher. / وہ استاد ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>sie</strong></td>
+                        <td class="pronunciation">ZEE</td>
+                        <td class="english">she</td>
+                        <td class="urdu">وہ (مؤنث)</td>
+                        <td>Sie ist Ärztin. <br><small>(She is a doctor. / وہ ڈاکٹر ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>es</strong></td>
+                        <td class="pronunciation">ES</td>
+                        <td class="english">it</td>
+                        <td class="urdu">یہ/وہ (غیرجاندار)</td>
+                        <td>Es ist kalt. <br><small>(It is cold. / یہ ٹھنڈا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>wir</strong></td>
+                        <td class="pronunciation">VEER</td>
+                        <td class="english">we</td>
+                        <td class="urdu">ہم</td>
+                        <td>Wir sind Freunde. <br><small>(We are friends. / ہم دوست ہیں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ihr</strong></td>
+                        <td class="pronunciation">EER</td>
+                        <td class="english">you (plural informal)</td>
+                        <td class="urdu">تم (جمع)</td>
+                        <td>Ihr seid Studenten. <br><small>(You are students. / تم طلباء ہو۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>sie</strong></td>
+                        <td class="pronunciation">ZEE</td>
+                        <td class="english">they</td>
+                        <td class="urdu">وہ (جمع)</td>
+                        <td>Sie sind zu Hause. <br><small>(They are at home. / وہ گھر پر ہیں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sie</strong></td>
+                        <td class="pronunciation">ZEE</td>
+                        <td class="english">you (formal)</td>
+                        <td class="urdu">آپ</td>
+                        <td>Sie sind Herr Müller. <br><small>(You are Mr. Müller. / آپ مسٹر مولر ہیں۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.2 Personal Pronouns with Example Sentences</h3>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <h4>ich (I / میں)</h4>
+                    <ul class="content-list">
+                        <li>Ich heiße Ahmed. <br><small>(My name is Ahmed. / میرا نام احمد ہے۔)</small></li>
+                        <li>Ich komme aus Pakistan. <br><small>(I come from Pakistan. / میں پاکستان سے ہوں۔)</small></li>
+                        <li>Ich lerne Deutsch. <br><small>(I learn German. / میں جرمن سیکھتا ہوں۔)</small></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>du (you informal / تم)</h4>
+                    <ul class="content-list">
+                        <li>Du bist mein Freund. <br><small>(You are my friend. / تم میرے دوست ہو۔)</small></li>
+                        <li>Du sprichst gut Deutsch. <br><small>(You speak German well. / تم اچھا جرمن بولتے ہو۔)</small></li>
+                        <li>Du wohnst in Berlin. <br><small>(You live in Berlin. / تم برلن میں رہتے ہو۔)</small></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>er (he / وہ مذکر)</h4>
+                    <ul class="content-list">
+                        <li>Er arbeitet im Büro. <br><small>(He works in the office. / وہ دفتر میں کام کرتا ہے۔)</small></li>
+                        <li>Er hat ein Auto. <br><small>(He has a car. / اس کے پاس گاڑی ہے۔)</small></li>
+                        <li>Er isst Brot. <br><small>(He eats bread. / وہ روٹی کھاتا ہے۔)</small></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>sie (she / وہ مؤنث)</h4>
+                    <ul class="content-list">
+                        <li>Sie kocht das Essen. <br><small>(She cooks the food. / وہ کھانا پکاتی ہے۔)</small></li>
+                        <li>Sie ist Lehrerin. <br><small>(She is a teacher. / وہ ٹیچر ہے۔)</small></li>
+                        <li>Sie trinkt Tee. <br><small>(She drinks tea. / وہ چائے پیتی ہے۔)</small></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>es (it / یہ/وہ)</h4>
+                    <ul class="content-list">
+                        <li>Es ist ein Buch. <br><small>(It is a book. / یہ کتاب ہے۔)</small></li>
+                        <li>Es regnet heute. <br><small>(It is raining today. / آج بارش ہو رہی ہے۔)</small></li>
+                        <li>Es ist warm. <br><small>(It is warm. / یہ گرم ہے۔)</small></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>wir (we / ہم)</h4>
+                    <ul class="content-list">
+                        <li>Wir lernen zusammen. <br><small>(We learn together. / ہم مل کر سیکھتے ہیں۔)</small></li>
+                        <li>Wir sind Studenten. <br><small>(We are students. / ہم طلباء ہیں۔)</small></li>
+                        <li>Wir gehen zur Schule. <br><small>(We go to school. / ہم سکول جاتے ہیں۔)</small></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>ihr (you plural / تم سب)</h4>
+                    <ul class="content-list">
+                        <li>Ihr seid nett. <br><small>(You are nice. / تم سب اچھے ہو۔)</small></li>
+                        <li>Ihr kommt aus Deutschland. <br><small>(You come from Germany. / تم جرمنی سے ہو۔)</small></li>
+                        <li>Ihr habt Zeit. <br><small>(You have time. / تمہارے پاس وقت ہے۔)</small></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>sie (they / وہ لوگ)</h4>
+                    <ul class="content-list">
+                        <li>Sie spielen Fußball. <br><small>(They play football. / وہ فٹبال کھیلتے ہیں۔)</small></li>
+                        <li>Sie sind Freunde. <br><small>(They are friends. / وہ دوست ہیں۔)</small></li>
+                        <li>Sie wohnen in Karachi. <br><small>(They live in Karachi. / وہ کراچی میں رہتے ہیں۔)</small></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Sie (you formal / آپ)</h4>
+                    <ul class="content-list">
+                        <li>Sie sind sehr nett. <br><small>(You are very nice. / آپ بہت اچھے ہیں۔)</small></li>
+                        <li>Sie arbeiten hier. <br><small>(You work here. / آپ یہاں کام کرتے ہیں۔)</small></li>
+                        <li>Sie sprechen Deutsch. <br><small>(You speak German. / آپ جرمن بولتے ہیں۔)</small></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: POSSESSIVE PRONOUNS -->
+        <div id="section3" class="section">
+            <h2>SECTION 3: POSSESSIVE PRONOUNS (اضافی ضمیر)</h2>
+            
+            <h3>3.1 Possessive Pronouns Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Personal Pronoun</th>
+                        <th>Possessive (masculine)</th>
+                        <th>Possessive (feminine)</th>
+                        <th>Possessive (neuter)</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ich</td>
+                        <td>mein</td>
+                        <td>meine</td>
+                        <td>mein</td>
+                        <td class="english">my</td>
+                        <td class="urdu">میرا/میری</td>
+                    </tr>
+                    <tr>
+                        <td>du</td>
+                        <td>dein</td>
+                        <td>deine</td>
+                        <td>dein</td>
+                        <td class="english">your</td>
+                        <td class="urdu">تمہارا/تمہاری</td>
+                    </tr>
+                    <tr>
+                        <td>er</td>
+                        <td>sein</td>
+                        <td>seine</td>
+                        <td>sein</td>
+                        <td class="english">his</td>
+                        <td class="urdu">اس کا/اس کی</td>
+                    </tr>
+                    <tr>
+                        <td>sie</td>
+                        <td>ihr</td>
+                        <td>ihre</td>
+                        <td>ihr</td>
+                        <td class="english">her</td>
+                        <td class="urdu">اس کا/اس کی</td>
+                    </tr>
+                    <tr>
+                        <td>es</td>
+                        <td>sein</td>
+                        <td>seine</td>
+                        <td>sein</td>
+                        <td class="english">its</td>
+                        <td class="urdu">اس کا/اس کی</td>
+                    </tr>
+                    <tr>
+                        <td>wir</td>
+                        <td>unser</td>
+                        <td>unsere</td>
+                        <td>unser</td>
+                        <td class="english">our</td>
+                        <td class="urdu">ہمارا/ہماری</td>
+                    </tr>
+                    <tr>
+                        <td>ihr</td>
+                        <td>euer</td>
+                        <td>eure</td>
+                        <td>euer</td>
+                        <td class="english">your (pl)</td>
+                        <td class="urdu">تمہارا/تمہاری</td>
+                    </tr>
+                    <tr>
+                        <td>sie/Sie</td>
+                        <td>ihr/Ihr</td>
+                        <td>ihre/Ihre</td>
+                        <td>ihr/Ihr</td>
+                        <td class="english">their/your</td>
+                        <td class="urdu">ان کا/آپ کا</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.2 Possessive Pronouns with Examples</h3>
+
+            <div class="card">
+                <h4>mein/meine (my / میرا/میری)</h4>
+                <ul class="content-list">
+                    <li><strong>Mein</strong> Vater ist Lehrer. <br><small>(My father is a teacher. / میرا باپ استاد ہے۔) - <em>masculine</em></small></li>
+                    <li><strong>Meine</strong> Mutter kocht gut. <br><small>(My mother cooks well. / میری ماں اچھا پکاتی ہے۔) - <em>feminine</em></small></li>
+                    <li><strong>Mein</strong> Buch ist neu. <br><small>(My book is new. / میری کتاب نئی ہے۔) - <em>neuter</em></small></li>
+                    <li><strong>Meine</strong> Bücher sind alt. <br><small>(My books are old. / میری کتابیں پرانی ہیں۔) - <em>plural</em></small></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>dein/deine (your / تمہارا/تمہاری)</h4>
+                <ul class="content-list">
+                    <li><strong>Dein</strong> Bruder ist nett. <br><small>(Your brother is nice. / تمہارا بھائی اچھا ہے۔) - <em>masculine</em></small></li>
+                    <li><strong>Deine</strong> Schwester ist klein. <br><small>(Your sister is small. / تمہاری بہن چھوٹی ہے۔) - <em>feminine</em></small></li>
+                    <li><strong>Dein</strong> Auto ist schnell. <br><small>(Your car is fast. / تمہاری گاڑی تیز ہے۔) - <em>neuter</em></small></li>
+                    <li><strong>Deine</strong> Freunde sind hier. <br><small>(Your friends are here. / تمہارے دوست یہاں ہیں۔) - <em>plural</em></small></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>sein/seine (his / اس کا/اس کی)</h4>
+                <ul class="content-list">
+                    <li><strong>Sein</strong> Haus ist groß. <br><small>(His house is big. / اس کا گھر بڑا ہے۔) - <em>neuter</em></small></li>
+                    <li><strong>Seine</strong> Frau ist Ärztin. <br><small>(His wife is a doctor. / اس کی بیوی ڈاکٹر ہے۔) - <em>feminine</em></small></li>
+                    <li><strong>Seine</strong> Kinder spielen. <br><small>(His children play. / اس کے بچے کھیلتے ہیں۔) - <em>plural</em></small></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>ihr/ihre (her / اس کا/اس کی)</h4>
+                <ul class="content-list">
+                    <li><strong>Ihr</strong> Mann arbeitet. <br><small>(Her husband works. / اس کا شوہر کام کرتا ہے۔) - <em>masculine</em></small></li>
+                    <li><strong>Ihre</strong> Tasche ist schwarz. <br><small>(Her bag is black. / اس کا بیگ کالا ہے۔) - <em>feminine</em></small></li>
+                    <li><strong>Ihr</strong> Kind ist süß. <br><small>(Her child is sweet. / اس کا بچہ پیارا ہے۔) - <em>neuter</em></small></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>unser/unsere (our / ہمارا/ہماری)</h4>
+                <ul class="content-list">
+                    <li><strong>Unser</strong> Lehrer ist gut. <br><small>(Our teacher is good. / ہمارا استاد اچھا ہے۔) - <em>masculine</em></small></li>
+                    <li><strong>Unsere</strong> Schule ist neu. <br><small>(Our school is new. / ہمارا سکول نیا ہے۔) - <em>feminine</em></small></li>
+                    <li><strong>Unser</strong> Haus ist klein. <br><small>(Our house is small. / ہمارا گھر چھوٹا ہے۔) - <em>neuter</em></small></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>euer/eure (your plural / تمہارا)</h4>
+                <ul class="content-list">
+                    <li><strong>Euer</strong> Vater ist nett. <br><small>(Your father is nice. / تمہارا باپ اچھا ہے۔) - <em>masculine</em></small></li>
+                    <li><strong>Eure</strong> Mutter kocht. <br><small>(Your mother cooks. / تمہاری ماں پکاتی ہے۔) - <em>feminine</em></small></li>
+                    <li><strong>Euer</strong> Zimmer ist sauber. <br><small>(Your room is clean. / تمہارا کمرہ صاف ہے۔) - <em>neuter</em></small></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 4: ARTICLES -->
+        <div id="section4" class="section">
+            <h2>SECTION 4: ARTICLES (آرٹیکل)</h2>
+
+            <h3>4.1 Definite Articles (معین آرٹیکل - "The")</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gender</th>
+                        <th>Article</th>
+                        <th>Example</th>
+                        <th>Pronunciation</th>
+                        <th>Translation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Masculine</strong></td>
+                        <td>der</td>
+                        <td>der Mann</td>
+                        <td class="pronunciation">dair MAHN</td>
+                        <td>the man / آدمی</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Feminine</strong></td>
+                        <td>die</td>
+                        <td>die Frau</td>
+                        <td class="pronunciation">dee FROW</td>
+                        <td>the woman / عورت</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Neuter</strong></td>
+                        <td>das</td>
+                        <td>das Kind</td>
+                        <td class="pronunciation">dahs KINT</td>
+                        <td>the child / بچہ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Plural</strong></td>
+                        <td>die</td>
+                        <td>die Kinder</td>
+                        <td class="pronunciation">dee KIN-der</td>
+                        <td>the children / بچے</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>Example Sentences:</strong><br>
+                • Der Tisch ist groß. (The table is big. / میز بڑی ہے۔)<br>
+                • Die Tür ist offen. (The door is open. / دروازہ کھلا ہے۔)<br>
+                • Das Buch ist interessant. (The book is interesting. / کتاب دلچسپ ہے۔)<br>
+                • Die Bücher sind neu. (The books are new. / کتابیں نئی ہیں۔)
+            </div>
+
+            <h3>4.2 Indefinite Articles (غیر معین آرٹیکل - "A/An")</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gender</th>
+                        <th>Article</th>
+                        <th>Example</th>
+                        <th>Pronunciation</th>
+                        <th>Translation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Masculine</strong></td>
+                        <td>ein</td>
+                        <td>ein Mann</td>
+                        <td class="pronunciation">eyen MAHN</td>
+                        <td>a man / ایک آدمی</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Feminine</strong></td>
+                        <td>eine</td>
+                        <td>eine Frau</td>
+                        <td class="pronunciation">EYE-neh FROW</td>
+                        <td>a woman / ایک عورت</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Neuter</strong></td>
+                        <td>ein</td>
+                        <td>ein Kind</td>
+                        <td class="pronunciation">eyen KINT</td>
+                        <td>a child / ایک بچہ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>Example Sentences:</strong><br>
+                • Ich habe ein Auto. (I have a car. / میرے پاس ایک گاڑی ہے۔)<br>
+                • Das ist eine Katze. (That is a cat. / یہ ایک بلی ہے۔)<br>
+                • Er kauft ein Buch. (He buys a book. / وہ ایک کتاب خریدتا ہے۔)
+            </div>
+
+            <h3>4.3 Negative Articles (منفی آرٹیکل - "No/Not a")</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gender</th>
+                        <th>Article</th>
+                        <th>Example</th>
+                        <th>Translation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Masculine</strong></td>
+                        <td>kein</td>
+                        <td>kein Mann</td>
+                        <td>no man / کوئی آدمی نہیں</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Feminine</strong></td>
+                        <td>keine</td>
+                        <td>keine Frau</td>
+                        <td>no woman / کوئی عورت نہیں</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Neuter</strong></td>
+                        <td>kein</td>
+                        <td>kein Kind</td>
+                        <td>no child / کوئی بچہ نہیں</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Plural</strong></td>
+                        <td>keine</td>
+                        <td>keine Kinder</td>
+                        <td>no children / کوئی بچے نہیں</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>Example Sentences:</strong><br>
+                • Ich habe kein Auto. (I have no car. / میرے پاس کوئی گاڑی نہیں۔)<br>
+                • Das ist keine Katze. (That is not a cat. / یہ بلی نہیں ہے۔)<br>
+                • Er hat kein Geld. (He has no money. / اس کے پاس پیسے نہیں۔)
+            </div>
+        </div>
+
+        <!-- SECTION 5: COMMON VERBS -->
+        <div id="section5" class="section">
+            <h2>SECTION 5: COMMON VERBS (عام افعال)</h2>
+
+            <h3>5.1 sein (to be / ہونا) - Present Tense</h3>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ich</td>
+                        <td><strong>bin</strong></td>
+                        <td class="pronunciation">BIN</td>
+                        <td class="english">I am</td>
+                        <td class="urdu">میں ہوں</td>
+                        <td>Ich bin Student. <br><small>(I am a student. / میں طالب علم ہوں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>du</td>
+                        <td><strong>bist</strong></td>
+                        <td class="pronunciation">BIST</td>
+                        <td class="english">you are</td>
+                        <td class="urdu">تم ہو</td>
+                        <td>Du bist nett. <br><small>(You are nice. / تم اچھے ہو۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>er/sie/es</td>
+                        <td><strong>ist</strong></td>
+                        <td class="pronunciation">IST</td>
+                        <td class="english">he/she/it is</td>
+                        <td class="urdu">وہ ہے</td>
+                        <td>Er ist Lehrer. <br><small>(He is a teacher. / وہ استاد ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>wir</td>
+                        <td><strong>sind</strong></td>
+                        <td class="pronunciation">ZINT</td>
+                        <td class="english">we are</td>
+                        <td class="urdu">ہم ہیں</td>
+                        <td>Wir sind Freunde. <br><small>(We are friends. / ہم دوست ہیں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>ihr</td>
+                        <td><strong>seid</strong></td>
+                        <td class="pronunciation">ZEYET</td>
+                        <td class="english">you are</td>
+                        <td class="urdu">تم ہو</td>
+                        <td>Ihr seid groß. <br><small>(You are tall. / تم لمبے ہو۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>sie/Sie</td>
+                        <td><strong>sind</strong></td>
+                        <td class="pronunciation">ZINT</td>
+                        <td class="english">they/you are</td>
+                        <td class="urdu">وہ/آپ ہیں</td>
+                        <td>Sie sind hier. <br><small>(They are here. / وہ یہاں ہیں۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>More Examples:</strong><br>
+                • Ich bin müde. (I am tired. / میں تھکا ہوا ہوں۔)<br>
+                • Du bist glücklich. (You are happy. / تم خوش ہو۔)<br>
+                • Sie ist schön. (She is beautiful. / وہ خوبصورت ہے۔)<br>
+                • Wir sind zu Hause. (We are at home. / ہم گھر پر ہیں۔)
+            </div>
+
+            <h3>5.2 haben (to have / رکھنا) - Present Tense</h3>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ich</td>
+                        <td><strong>habe</strong></td>
+                        <td class="pronunciation">HAH-beh</td>
+                        <td class="english">I have</td>
+                        <td class="urdu">میرے پاس ہے</td>
+                        <td>Ich habe ein Buch. <br><small>(I have a book. / میرے پاس کتاب ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>du</td>
+                        <td><strong>hast</strong></td>
+                        <td class="pronunciation">HAST</td>
+                        <td class="english">you have</td>
+                        <td class="urdu">تمہارے پاس ہے</td>
+                        <td>Du hast Zeit. <br><small>(You have time. / تمہارے پاس وقت ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>er/sie/es</td>
+                        <td><strong>hat</strong></td>
+                        <td class="pronunciation">HAHT</td>
+                        <td class="english">he/she/it has</td>
+                        <td class="urdu">اس کے پاس ہے</td>
+                        <td>Er hat ein Auto. <br><small>(He has a car. / اس کے پاس گاڑی ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>wir</td>
+                        <td><strong>haben</strong></td>
+                        <td class="pronunciation">HAH-ben</td>
+                        <td class="english">we have</td>
+                        <td class="urdu">ہمارے پاس ہے</td>
+                        <td>Wir haben Hunger. <br><small>(We have hunger. / ہمیں بھوک ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>ihr</td>
+                        <td><strong>habt</strong></td>
+                        <td class="pronunciation">HAHPT</td>
+                        <td class="english">you have</td>
+                        <td class="urdu">تمہارے پاس ہے</td>
+                        <td>Ihr habt Glück. <br><small>(You have luck. / تم خوش قسمت ہو۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>sie/Sie</td>
+                        <td><strong>haben</strong></td>
+                        <td class="pronunciation">HAH-ben</td>
+                        <td class="english">they/you have</td>
+                        <td class="urdu">ان/آپ کے پاس ہے</td>
+                        <td>Sie haben Kinder. <br><small>(They have children. / ان کے بچے ہیں۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>More Examples:</strong><br>
+                • Ich habe Durst. (I have thirst. / مجھے پیاس ہے۔)<br>
+                • Sie hat einen Bruder. (She has a brother. / اس کا ایک بھائی ہے۔)<br>
+                • Wir haben eine Wohnung. (We have an apartment. / ہمارے پاس اپارٹمنٹ ہے۔)
+            </div>
+
+            <h3>5.3 werden (to become / بننا) - Present Tense</h3>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ich</td>
+                        <td><strong>werde</strong></td>
+                        <td class="pronunciation">VAIR-deh</td>
+                        <td class="english">I become</td>
+                        <td class="urdu">میں بنتا ہوں</td>
+                        <td>Ich werde Arzt. <br><small>(I become a doctor. / میں ڈاکٹر بنتا ہوں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>du</td>
+                        <td><strong>wirst</strong></td>
+                        <td class="pronunciation">VEERST</td>
+                        <td class="english">you become</td>
+                        <td class="urdu">تم بنتے ہو</td>
+                        <td>Du wirst groß. <br><small>(You become big. / تم بڑے ہو رہے ہو۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>er/sie/es</td>
+                        <td><strong>wird</strong></td>
+                        <td class="pronunciation">VEERT</td>
+                        <td class="english">he/she/it becomes</td>
+                        <td class="urdu">وہ بنتا ہے</td>
+                        <td>Er wird müde. <br><small>(He becomes tired. / وہ تھک رہا ہے۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>wir</td>
+                        <td><strong>werden</strong></td>
+                        <td class="pronunciation">VAIR-den</td>
+                        <td class="english">we become</td>
+                        <td class="urdu">ہم بنتے ہیں</td>
+                        <td>Wir werden alt. <br><small>(We become old. / ہم بوڑھے ہو رہے ہیں۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>ihr</td>
+                        <td><strong>werdet</strong></td>
+                        <td class="pronunciation">VAIR-det</td>
+                        <td class="english">you become</td>
+                        <td class="urdu">تم بنتے ہو</td>
+                        <td>Ihr werdet Lehrer. <br><small>(You become teachers. / تم استاد بنتے ہو۔)</small></td>
+                    </tr>
+                    <tr>
+                        <td>sie/Sie</td>
+                        <td><strong>werden</strong></td>
+                        <td class="pronunciation">VAIR-den</td>
+                        <td class="english">they/you become</td>
+                        <td class="urdu">وہ/آپ بنتے ہیں</td>
+                        <td>Sie werden glücklich. <br><small>(They become happy. / وہ خوش ہو رہے ہیں۔)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>5.4 Regular Verbs</h3>
+
+            <h4>machen (to do/make / کرنا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>mache</strong></td><td class="english">I do/make</td><td class="urdu">میں کرتا ہوں</td><td>Ich mache Hausaufgaben. <br><small>(I do homework. / میں ہوم ورک کرتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>machst</strong></td><td class="english">you do/make</td><td class="urdu">تم کرتے ہو</td><td>Du machst Sport. <br><small>(You do sports. / تم کھیل کرتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>macht</strong></td><td class="english">he/she/it does</td><td class="urdu">وہ کرتا ہے</td><td>Er macht Pause. <br><small>(He takes a break. / وہ وقفہ لیتا ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>machen</strong></td><td class="english">we do/make</td><td class="urdu">ہم کرتے ہیں</td><td>Wir machen Musik. <br><small>(We make music. / ہم موسیقی بناتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>macht</strong></td><td class="english">you do/make</td><td class="urdu">تم کرتے ہو</td><td>Ihr macht Lärm. <br><small>(You make noise. / تم شور کرتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>machen</strong></td><td class="english">they/you do</td><td class="urdu">وہ/آپ کرتے ہیں</td><td>Sie machen Urlaub. <br><small>(They take vacation. / وہ چھٹیاں لیتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>lernen (to learn / سیکھنا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>lerne</strong></td><td class="english">I learn</td><td class="urdu">میں سیکھتا ہوں</td><td>Ich lerne Deutsch. <br><small>(I learn German. / میں جرمن سیکھتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>lernst</strong></td><td class="english">you learn</td><td class="urdu">تم سیکھتے ہو</td><td>Du lernst schnell. <br><small>(You learn quickly. / تم جلدی سیکھتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>lernt</strong></td><td class="english">he/she/it learns</td><td class="urdu">وہ سیکھتا ہے</td><td>Sie lernt Englisch. <br><small>(She learns English. / وہ انگریزی سیکھتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>lernen</strong></td><td class="english">we learn</td><td class="urdu">ہم سیکھتے ہیں</td><td>Wir lernen zusammen. <br><small>(We learn together. / ہم مل کر سیکھتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>lernt</strong></td><td class="english">you learn</td><td class="urdu">تم سیکھتے ہو</td><td>Ihr lernt viel. <br><small>(You learn a lot. / تم بہت سیکھتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>lernen</strong></td><td class="english">they/you learn</td><td class="urdu">وہ/آپ سیکھتے ہیں</td><td>Sie lernen Urdu. <br><small>(They learn Urdu. / وہ اردو سیکھتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>arbeiten (to work / کام کرنا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>arbeite</strong></td><td class="english">I work</td><td class="urdu">میں کام کرتا ہوں</td><td>Ich arbeite im Büro. <br><small>(I work in the office. / میں دفتر میں کام کرتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>arbeitest</strong></td><td class="english">you work</td><td class="urdu">تم کام کرتے ہو</td><td>Du arbeitest viel. <br><small>(You work a lot. / تم بہت کام کرتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>arbeitet</strong></td><td class="english">he/she/it works</td><td class="urdu">وہ کام کرتا ہے</td><td>Er arbeitet hier. <br><small>(He works here. / وہ یہاں کام کرتا ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>arbeiten</strong></td><td class="english">we work</td><td class="urdu">ہم کام کرتے ہیں</td><td>Wir arbeiten zusammen. <br><small>(We work together. / ہم مل کر کام کرتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>arbeitet</strong></td><td class="english">you work</td><td class="urdu">تم کام کرتے ہو</td><td>Ihr arbeitet hart. <br><small>(You work hard. / تم محنت سے کام کرتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>arbeiten</strong></td><td class="english">they/you work</td><td class="urdu">وہ/آپ کام کرتے ہیں</td><td>Sie arbeiten in Berlin. <br><small>(They work in Berlin. / وہ برلن میں کام کرتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>wohnen (to live/reside / رہنا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>wohne</strong></td><td class="english">I live</td><td class="urdu">میں رہتا ہوں</td><td>Ich wohne in Karachi. <br><small>(I live in Karachi. / میں کراچی میں رہتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>wohnst</strong></td><td class="english">you live</td><td class="urdu">تم رہتے ہو</td><td>Du wohnst in Berlin. <br><small>(You live in Berlin. / تم برلن میں رہتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>wohnt</strong></td><td class="english">he/she/it lives</td><td class="urdu">وہ رہتا ہے</td><td>Sie wohnt hier. <br><small>(She lives here. / وہ یہاں رہتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>wohnen</strong></td><td class="english">we live</td><td class="urdu">ہم رہتے ہیں</td><td>Wir wohnen zusammen. <br><small>(We live together. / ہم اکٹھے رہتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>wohnt</strong></td><td class="english">you live</td><td class="urdu">تم رہتے ہو</td><td>Ihr wohnt nah. <br><small>(You live nearby. / تم قریب رہتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>wohnen</strong></td><td class="english">they/you live</td><td class="urdu">وہ/آپ رہتے ہیں</td><td>Sie wohnen in Deutschland. <br><small>(They live in Germany. / وہ جرمنی میں رہتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>kochen (to cook / پکانا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>koche</strong></td><td class="english">I cook</td><td class="urdu">میں پکاتا ہوں</td><td>Ich koche Reis. <br><small>(I cook rice. / میں چاول پکاتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>kochst</strong></td><td class="english">you cook</td><td class="urdu">تم پکاتے ہو</td><td>Du kochst gut. <br><small>(You cook well. / تم اچھا پکاتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>kocht</strong></td><td class="english">he/she/it cooks</td><td class="urdu">وہ پکاتا ہے</td><td>Sie kocht das Essen. <br><small>(She cooks the food. / وہ کھانا پکاتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>kochen</strong></td><td class="english">we cook</td><td class="urdu">ہم پکاتے ہیں</td><td>Wir kochen zusammen. <br><small>(We cook together. / ہم مل کر پکاتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>kocht</strong></td><td class="english">you cook</td><td class="urdu">تم پکاتے ہو</td><td>Ihr kocht Pizza. <br><small>(You cook pizza. / تم پیزا پکاتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>kochen</strong></td><td class="english">they/you cook</td><td class="urdu">وہ/آپ پکاتے ہیں</td><td>Sie kochen gern. <br><small>(They like to cook. / وہ پکانا پسند کرتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>spielen (to play / کھیلنا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>spiele</strong></td><td class="english">I play</td><td class="urdu">میں کھیلتا ہوں</td><td>Ich spiele Fußball. <br><small>(I play football. / میں فٹبال کھیلتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>spielst</strong></td><td class="english">you play</td><td class="urdu">تم کھیلتے ہو</td><td>Du spielst Gitarre. <br><small>(You play guitar. / تم گٹار بجاتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>spielt</strong></td><td class="english">he/she/it plays</td><td class="urdu">وہ کھیلتا ہے</td><td>Er spielt Tennis. <br><small>(He plays tennis. / وہ ٹینس کھیلتا ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>spielen</strong></td><td class="english">we play</td><td class="urdu">ہم کھیلتے ہیں</td><td>Wir spielen Cricket. <br><small>(We play cricket. / ہم کرکٹ کھیلتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>spielt</strong></td><td class="english">you play</td><td class="urdu">تم کھیلتے ہو</td><td>Ihr spielt gut. <br><small>(You play well. / تم اچھا کھیلتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>spielen</strong></td><td class="english">they/you play</td><td class="urdu">وہ/آپ کھیلتے ہیں</td><td>Sie spielen gern. <br><small>(They like to play. / وہ کھیلنا پسند کرتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>kaufen (to buy / خریدنا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>kaufe</strong></td><td class="english">I buy</td><td class="urdu">میں خریدتا ہوں</td><td>Ich kaufe Brot. <br><small>(I buy bread. / میں روٹی خریدتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>kaufst</strong></td><td class="english">you buy</td><td class="urdu">تم خریدتے ہو</td><td>Du kaufst ein Auto. <br><small>(You buy a car. / تم گاڑی خریدتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>kauft</strong></td><td class="english">he/she/it buys</td><td class="urdu">وہ خریدتا ہے</td><td>Sie kauft Kleidung. <br><small>(She buys clothes. / وہ کپڑے خریدتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>kaufen</strong></td><td class="english">we buy</td><td class="urdu">ہم خریدتے ہیں</td><td>Wir kaufen Gemüse. <br><small>(We buy vegetables. / ہم سبزیاں خریدتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>kauft</strong></td><td class="english">you buy</td><td class="urdu">تم خریدتے ہو</td><td>Ihr kauft Bücher. <br><small>(You buy books. / تم کتابیں خریدتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>kaufen</strong></td><td class="english">they/you buy</td><td class="urdu">وہ/آپ خریدتے ہیں</td><td>Sie kaufen Obst. <br><small>(They buy fruit. / وہ پھل خریدتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h3>5.5 Important Irregular Verbs</h3>
+
+            <h4>gehen (to go / جانا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>gehe</strong></td><td class="english">I go</td><td class="urdu">میں جاتا ہوں</td><td>Ich gehe zur Schule. <br><small>(I go to school. / میں سکول جاتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>gehst</strong></td><td class="english">you go</td><td class="urdu">تم جاتے ہو</td><td>Du gehst nach Hause. <br><small>(You go home. / تم گھر جاتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>geht</strong></td><td class="english">he/she/it goes</td><td class="urdu">وہ جاتا ہے</td><td>Er geht ins Kino. <br><small>(He goes to cinema. / وہ سنیما جاتا ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>gehen</strong></td><td class="english">we go</td><td class="urdu">ہم جاتے ہیں</td><td>Wir gehen spazieren. <br><small>(We go for a walk. / ہم سیر کو جاتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>geht</strong></td><td class="english">you go</td><td class="urdu">تم جاتے ہو</td><td>Ihr geht einkaufen. <br><small>(You go shopping. / تم خریداری کو جاتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>gehen</strong></td><td class="english">they/you go</td><td class="urdu">وہ/آپ جاتے ہیں</td><td>Sie gehen zur Arbeit. <br><small>(They go to work. / وہ کام پر جاتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>kommen (to come / آنا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>komme</strong></td><td class="english">I come</td><td class="urdu">میں آتا ہوں</td><td>Ich komme aus Pakistan. <br><small>(I come from Pakistan. / میں پاکستان سے آتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>kommst</strong></td><td class="english">you come</td><td class="urdu">تم آتے ہو</td><td>Du kommst morgen. <br><small>(You come tomorrow. / تم کل آتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>kommt</strong></td><td class="english">he/she/it comes</td><td class="urdu">وہ آتا ہے</td><td>Sie kommt spät. <br><small>(She comes late. / وہ دیر سے آتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>kommen</strong></td><td class="english">we come</td><td class="urdu">ہم آتے ہیں</td><td>Wir kommen zusammen. <br><small>(We come together. / ہم اکٹھے آتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>kommt</strong></td><td class="english">you come</td><td class="urdu">تم آتے ہو</td><td>Ihr kommt heute. <br><small>(You come today. / تم آج آتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>kommen</strong></td><td class="english">they/you come</td><td class="urdu">وہ/آپ آتے ہیں</td><td>Sie kommen aus Deutschland. <br><small>(They come from Germany. / وہ جرمنی سے آتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>essen (to eat / کھانا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>esse</strong></td><td class="english">I eat</td><td class="urdu">میں کھاتا ہوں</td><td>Ich esse Brot. <br><small>(I eat bread. / میں روٹی کھاتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>isst</strong></td><td class="english">you eat</td><td class="urdu">تم کھاتے ہو</td><td>Du isst Reis. <br><small>(You eat rice. / تم چاول کھاتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>isst</strong></td><td class="english">he/she/it eats</td><td class="urdu">وہ کھاتا ہے</td><td>Er isst Pizza. <br><small>(He eats pizza. / وہ پیزا کھاتا ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>essen</strong></td><td class="english">we eat</td><td class="urdu">ہم کھاتے ہیں</td><td>Wir essen zusammen. <br><small>(We eat together. / ہم اکٹھے کھاتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>esst</strong></td><td class="english">you eat</td><td class="urdu">تم کھاتے ہو</td><td>Ihr esst gern. <br><small>(You like to eat. / تم کھانا پسند کرتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>essen</strong></td><td class="english">they/you eat</td><td class="urdu">وہ/آپ کھاتے ہیں</td><td>Sie essen Gemüse. <br><small>(They eat vegetables. / وہ سبزیاں کھاتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>trinken (to drink / پینا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>trinke</strong></td><td class="english">I drink</td><td class="urdu">میں پیتا ہوں</td><td>Ich trinke Wasser. <br><small>(I drink water. / میں پانی پیتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>trinkst</strong></td><td class="english">you drink</td><td class="urdu">تم پیتے ہو</td><td>Du trinkst Tee. <br><small>(You drink tea. / تم چائے پیتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>trinkt</strong></td><td class="english">he/she/it drinks</td><td class="urdu">وہ پیتا ہے</td><td>Sie trinkt Milch. <br><small>(She drinks milk. / وہ دودھ پیتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>trinken</strong></td><td class="english">we drink</td><td class="urdu">ہم پیتے ہیں</td><td>Wir trinken Kaffee. <br><small>(We drink coffee. / ہم کافی پیتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>trinkt</strong></td><td class="english">you drink</td><td class="urdu">تم پیتے ہو</td><td>Ihr trinkt Saft. <br><small>(You drink juice. / تم جوس پیتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>trinken</strong></td><td class="english">they/you drink</td><td class="urdu">وہ/آپ پیتے ہیں</td><td>Sie trinken Cola. <br><small>(They drink cola. / وہ کولا پیتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>sprechen (to speak / بولنا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>spreche</strong></td><td class="english">I speak</td><td class="urdu">میں بولتا ہوں</td><td>Ich spreche Deutsch. <br><small>(I speak German. / میں جرمن بولتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>sprichst</strong></td><td class="english">you speak</td><td class="urdu">تم بولتے ہو</td><td>Du sprichst Urdu. <br><small>(You speak Urdu. / تم اردو بولتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>spricht</strong></td><td class="english">he/she/it speaks</td><td class="urdu">وہ بولتا ہے</td><td>Er spricht Englisch. <br><small>(He speaks English. / وہ انگریزی بولتا ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>sprechen</strong></td><td class="english">we speak</td><td class="urdu">ہم بولتے ہیں</td><td>Wir sprechen langsam. <br><small>(We speak slowly. / ہم آہستہ بولتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>sprecht</strong></td><td class="english">you speak</td><td class="urdu">تم بولتے ہو</td><td>Ihr sprecht gut. <br><small>(You speak well. / تم اچھا بولتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>sprechen</strong></td><td class="english">they/you speak</td><td class="urdu">وہ/آپ بولتے ہیں</td><td>Sie sprechen Deutsch. <br><small>(They speak German. / وہ جرمن بولتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>lesen (to read / پڑھنا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>lese</strong></td><td class="english">I read</td><td class="urdu">میں پڑھتا ہوں</td><td>Ich lese ein Buch. <br><small>(I read a book. / میں کتاب پڑھتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>liest</strong></td><td class="english">you read</td><td class="urdu">تم پڑھتے ہو</td><td>Du liest die Zeitung. <br><small>(You read the newspaper. / تم اخبار پڑھتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>liest</strong></td><td class="english">he/she/it reads</td><td class="urdu">وہ پڑھتا ہے</td><td>Sie liest viel. <br><small>(She reads a lot. / وہ بہت پڑھتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>lesen</strong></td><td class="english">we read</td><td class="urdu">ہم پڑھتے ہیں</td><td>Wir lesen zusammen. <br><small>(We read together. / ہم اکٹھے پڑھتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>lest</strong></td><td class="english">you read</td><td class="urdu">تم پڑھتے ہو</td><td>Ihr lest gern. <br><small>(You like to read. / تم پڑھنا پسند کرتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>lesen</strong></td><td class="english">they/you read</td><td class="urdu">وہ/آپ پڑھتے ہیں</td><td>Sie lesen Romane. <br><small>(They read novels. / وہ ناول پڑھتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>schlafen (to sleep / سونا)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>schlafe</strong></td><td class="english">I sleep</td><td class="urdu">میں سوتا ہوں</td><td>Ich schlafe gut. <br><small>(I sleep well. / میں اچھی نیند سوتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>schläfst</strong></td><td class="english">you sleep</td><td class="urdu">تم سوتے ہو</td><td>Du schläfst lange. <br><small>(You sleep long. / تم دیر تک سوتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>schläft</strong></td><td class="english">he/she/it sleeps</td><td class="urdu">وہ سوتا ہے</td><td>Er schläft jetzt. <br><small>(He sleeps now. / وہ اب سو رہا ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>schlafen</strong></td><td class="english">we sleep</td><td class="urdu">ہم سوتے ہیں</td><td>Wir schlafen nachts. <br><small>(We sleep at night. / ہم رات کو سوتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>schlaft</strong></td><td class="english">you sleep</td><td class="urdu">تم سوتے ہو</td><td>Ihr schlaft früh. <br><small>(You sleep early. / تم جلدی سوتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>schlafen</strong></td><td class="english">they/you sleep</td><td class="urdu">وہ/آپ سوتے ہیں</td><td>Sie schlafen viel. <br><small>(They sleep a lot. / وہ بہت سوتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 6: MODAL VERBS -->
+        <div id="section6" class="section">
+            <h2>SECTION 6: MODAL VERBS (موڈل افعال)</h2>
+
+            <h3>6.1 können (can/to be able to / سکنا)</h3>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>kann</strong></td><td class="english">I can</td><td class="urdu">میں سکتا ہوں</td><td>Ich kann schwimmen. <br><small>(I can swim. / میں تیر سکتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>kannst</strong></td><td class="english">you can</td><td class="urdu">تم سکتے ہو</td><td>Du kannst Deutsch sprechen. <br><small>(You can speak German. / تم جرمن بول سکتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>kann</strong></td><td class="english">he/she/it can</td><td class="urdu">وہ سکتا ہے</td><td>Sie kann gut kochen. <br><small>(She can cook well. / وہ اچھا پکا سکتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>können</strong></td><td class="english">we can</td><td class="urdu">ہم سکتے ہیں</td><td>Wir können das machen. <br><small>(We can do that. / ہم یہ کر سکتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>könnt</strong></td><td class="english">you can</td><td class="urdu">تم سکتے ہو</td><td>Ihr könnt kommen. <br><small>(You can come. / تم آ سکتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>können</strong></td><td class="english">they/you can</td><td class="urdu">وہ/آپ سکتے ہیں</td><td>Sie können helfen. <br><small>(They can help. / وہ مدد کر سکتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>More Examples:</strong><br>
+                • Ich kann Gitarre spielen. (I can play guitar. / میں گٹار بجا سکتا ہوں۔)<br>
+                • Kannst du mir helfen? (Can you help me? / کیا تم میری مدد کر سکتے ہو؟)<br>
+                • Er kann schnell laufen. (He can run fast. / وہ تیز دوڑ سکتا ہے۔)
+            </div>
+
+            <h3>6.2 müssen (must/have to / کرنا پڑنا)</h3>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>muss</strong></td><td class="english">I must</td><td class="urdu">مجھے کرنا ہے</td><td>Ich muss lernen. <br><small>(I must learn. / مجھے سیکھنا ہے۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>musst</strong></td><td class="english">you must</td><td class="urdu">تمہیں کرنا ہے</td><td>Du musst arbeiten. <br><small>(You must work. / تمہیں کام کرنا ہے۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>muss</strong></td><td class="english">he/she/it must</td><td class="urdu">اسے کرنا ہے</td><td>Er muss gehen. <br><small>(He must go. / اسے جانا ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>müssen</strong></td><td class="english">we must</td><td class="urdu">ہمیں کرنا ہے</td><td>Wir müssen warten. <br><small>(We must wait. / ہمیں انتظار کرنا ہے۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>müsst</strong></td><td class="english">you must</td><td class="urdu">تمہیں کرنا ہے</td><td>Ihr müsst kommen. <br><small>(You must come. / تمہیں آنا ہے۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>müssen</strong></td><td class="english">they/you must</td><td class="urdu">انہیں/آپ کو کرنا ہے</td><td>Sie müssen pünktlich sein. <br><small>(They must be punctual. / انہیں وقت پر ہونا چاہیے۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>More Examples:</strong><br>
+                • Ich muss um 7 Uhr aufstehen. (I must get up at 7 o'clock. / مجھے 7 بجے اٹھنا ہے۔)<br>
+                • Du musst die Wahrheit sagen. (You must tell the truth. / تمہیں سچ بولنا ہے۔)<br>
+                • Wir müssen Hausaufgaben machen. (We must do homework. / ہمیں ہوم ورک کرنا ہے۔)
+            </div>
+
+            <h3>6.3 wollen (to want to / چاہنا)</h3>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>will</strong></td><td class="english">I want</td><td class="urdu">میں چاہتا ہوں</td><td>Ich will Arzt werden. <br><small>(I want to become a doctor. / میں ڈاکٹر بننا چاہتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>willst</strong></td><td class="english">you want</td><td class="urdu">تم چاہتے ہو</td><td>Du willst schlafen. <br><small>(You want to sleep. / تم سونا چاہتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>will</strong></td><td class="english">he/she/it wants</td><td class="urdu">وہ چاہتا ہے</td><td>Sie will tanzen. <br><small>(She wants to dance. / وہ ناچنا چاہتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>wollen</strong></td><td class="english">we want</td><td class="urdu">ہم چاہتے ہیں</td><td>Wir wollen essen. <br><small>(We want to eat. / ہم کھانا چاہتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>wollt</strong></td><td class="english">you want</td><td class="urdu">تم چاہتے ہو</td><td>Ihr wollt spielen. <br><small>(You want to play. / تم کھیلنا چاہتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>wollen</strong></td><td class="english">they/you want</td><td class="urdu">وہ/آپ چاہتے ہیں</td><td>Sie wollen reisen. <br><small>(They want to travel. / وہ سفر کرنا چاہتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>More Examples:</strong><br>
+                • Ich will Deutsch lernen. (I want to learn German. / میں جرمن سیکھنا چاہتا ہوں۔)<br>
+                • Willst du Kaffee trinken? (Do you want to drink coffee? / کیا تم کافی پینا چاہتے ہو؟)<br>
+                • Wir wollen ins Kino gehen. (We want to go to the cinema. / ہم سنیما جانا چاہتے ہیں۔)
+            </div>
+
+            <h3>6.4 sollen (should / چاہیے)</h3>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>soll</strong></td><td class="english">I should</td><td class="urdu">مجھے چاہیے</td><td>Ich soll früh schlafen. <br><small>(I should sleep early. / مجھے جلدی سونا چاہیے۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>sollst</strong></td><td class="english">you should</td><td class="urdu">تمہیں چاہیے</td><td>Du sollst pünktlich sein. <br><small>(You should be punctual. / تمہیں وقت پر ہونا چاہیے۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>soll</strong></td><td class="english">he/she/it should</td><td class="urdu">اسے چاہیے</td><td>Er soll lernen. <br><small>(He should learn. / اسے سیکھنا چاہیے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>sollen</strong></td><td class="english">we should</td><td class="urdu">ہمیں چاہیے</td><td>Wir sollen helfen. <br><small>(We should help. / ہمیں مدد کرنی چاہیے۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>sollt</strong></td><td class="english">you should</td><td class="urdu">تمہیں چاہیے</td><td>Ihr sollt zuhören. <br><small>(You should listen. / تمہیں سننا چاہیے۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>sollen</strong></td><td class="english">they/you should</td><td class="urdu">انہیں/آپ کو چاہیے</td><td>Sie sollen warten. <br><small>(They should wait. / انہیں انتظار کرنا چاہیے۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>More Examples:</strong><br>
+                • Ich soll mehr Wasser trinken. (I should drink more water. / مجھے زیادہ پانی پینا چاہیے۔)<br>
+                • Du sollst gesund essen. (You should eat healthy. / تمہیں صحت مند کھانا کھانا چاہیے۔)
+            </div>
+
+            <h3>6.5 dürfen (may/to be allowed to / اجازت ہونا)</h3>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>darf</strong></td><td class="english">I may</td><td class="urdu">مجھے اجازت ہے</td><td>Ich darf gehen. <br><small>(I may go. / مجھے جانے کی اجازت ہے۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>darfst</strong></td><td class="english">you may</td><td class="urdu">تمہیں اجازت ہے</td><td>Du darfst spielen. <br><small>(You may play. / تمہیں کھیلنے کی اجازت ہے۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>darf</strong></td><td class="english">he/she/it may</td><td class="urdu">اسے اجازت ہے</td><td>Sie darf kommen. <br><small>(She may come. / اسے آنے کی اجازت ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>dürfen</strong></td><td class="english">we may</td><td class="urdu">ہمیں اجازت ہے</td><td>Wir dürfen sprechen. <br><small>(We may speak. / ہمیں بولنے کی اجازت ہے۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>dürft</strong></td><td class="english">you may</td><td class="urdu">تمہیں اجازت ہے</td><td>Ihr dürft bleiben. <br><small>(You may stay. / تمہیں رہنے کی اجازت ہے۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>dürfen</strong></td><td class="english">they/you may</td><td class="urdu">انہیں/آپ کو اجازت ہے</td><td>Sie dürfen rauchen. <br><small>(They may smoke. / انہیں سگریٹ پینے کی اجازت ہے۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <strong>More Examples:</strong><br>
+                • Ich darf hier parken. (I may park here. / مجھے یہاں گاڑی کھڑی کرنے کی اجازت ہے۔)<br>
+                • Darf ich hereinkommen? (May I come in? / کیا میں اندر آ سکتا ہوں؟)<br>
+                • Wir dürfen nicht laut sein. (We may not be loud. / ہمیں شور نہیں کرنا چاہیے۔)
+            </div>
+
+            <h3>6.6 mögen/möchten (to like/would like to / پسند کرنا)</h3>
+
+            <h4>mögen (to like)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>mag</strong></td><td class="english">I like</td><td class="urdu">میں پسند کرتا ہوں</td><td>Ich mag Pizza. <br><small>(I like pizza. / میں پیزا پسند کرتا ہوں۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>magst</strong></td><td class="english">you like</td><td class="urdu">تم پسند کرتے ہو</td><td>Du magst Musik. <br><small>(You like music. / تم موسیقی پسند کرتے ہو۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>mag</strong></td><td class="english">he/she/it likes</td><td class="urdu">وہ پسند کرتا ہے</td><td>Sie mag Schokolade. <br><small>(She likes chocolate. / وہ چاکلیٹ پسند کرتی ہے۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>mögen</strong></td><td class="english">we like</td><td class="urdu">ہم پسند کرتے ہیں</td><td>Wir mögen Sport. <br><small>(We like sports. / ہم کھیل پسند کرتے ہیں۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>mögt</strong></td><td class="english">you like</td><td class="urdu">تم پسند کرتے ہو</td><td>Ihr mögt Tiere. <br><small>(You like animals. / تم جانور پسند کرتے ہو۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>mögen</strong></td><td class="english">they/you like</td><td class="urdu">وہ/آپ پسند کرتے ہیں</td><td>Sie mögen Filme. <br><small>(They like films. / وہ فلمیں پسند کرتے ہیں۔)</small></td></tr>
+                </tbody>
+            </table>
+
+            <h4>möchten (would like to)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Conjugation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ich</td><td><strong>möchte</strong></td><td class="english">I would like</td><td class="urdu">میں چاہوں گا</td><td>Ich möchte Wasser. <br><small>(I would like water. / میں پانی چاہوں گا۔)</small></td></tr>
+                    <tr><td>du</td><td><strong>möchtest</strong></td><td class="english">you would like</td><td class="urdu">تم چاہو گے</td><td>Du möchtest schlafen. <br><small>(You would like to sleep. / تم سونا چاہو گے۔)</small></td></tr>
+                    <tr><td>er/sie/es</td><td><strong>möchte</strong></td><td class="english">he/she/it would like</td><td class="urdu">وہ چاہے گا</td><td>Er möchte essen. <br><small>(He would like to eat. / وہ کھانا چاہے گا۔)</small></td></tr>
+                    <tr><td>wir</td><td><strong>möchten</strong></td><td class="english">we would like</td><td class="urdu">ہم چاہیں گے</td><td>Wir möchten tanzen. <br><small>(We would like to dance. / ہم ناچنا چاہیں گے۔)</small></td></tr>
+                    <tr><td>ihr</td><td><strong>möchtet</strong></td><td class="english">you would like</td><td class="urdu">تم چاہو گے</td><td>Ihr möchtet kommen. <br><small>(You would like to come. / تم آنا چاہو گے۔)</small></td></tr>
+                    <tr><td>sie/Sie</td><td><strong>möchten</strong></td><td class="english">they/you would like</td><td class="urdu">وہ/آپ چاہیں گے</td><td>Sie möchten Kaffee. <br><small>(They would like coffee. / وہ کافی چاہیں گے۔)</small></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 7: INTRODUCTION & BASIC QUESTIONS -->
+        <div id="section7" class="section">
+            <h2>SECTION 7: INTRODUCTION & BASIC QUESTIONS (تعارف اور بنیادی سوالات)</h2>
+
+            <h3>7.1 Self Introduction (اپنا تعارف)</h3>
+
+            <div class="card">
+                <h4>Basic Introduction Phrases:</h4>
+                <ul class="content-list">
+                    <li><strong>Wie heißen Sie?</strong> <span class="pronunciation">(VAY HYE-sen ZEE)</span><br>
+                        <span class="english">What is your name? (formal)</span> / <span class="urdu">آپ کا نام کیا ہے؟</span><br>
+                        <strong>Ich heiße Ahmed.</strong> (I am called Ahmed. / میرا نام احمد ہے۔)</li>
+
+                    <li><strong>Wie heißt du?</strong> <span class="pronunciation">(VAY HYST doo)</span><br>
+                        <span class="english">What is your name? (informal)</span> / <span class="urdu">تمہارا نام کیا ہے؟</span><br>
+                        <strong>Ich heiße Sara.</strong> (I am called Sara. / میرا نام سارہ ہے۔)</li>
+
+                    <li><strong>Woher kommen Sie?</strong> <span class="pronunciation">(vo-HAIR KO-men ZEE)</span><br>
+                        <span class="english">Where do you come from? (formal)</span> / <span class="urdu">آپ کہاں سے ہیں؟</span><br>
+                        <strong>Ich komme aus Pakistan.</strong> (I come from Pakistan. / میں پاکستان سے ہوں۔)</li>
+
+                    <li><strong>Wo wohnen Sie?</strong> <span class="pronunciation">(VOH VOH-nen ZEE)</span><br>
+                        <span class="english">Where do you live? (formal)</span> / <span class="urdu">آپ کہاں رہتے ہیں؟</span><br>
+                        <strong>Ich wohne in Karachi.</strong> (I live in Karachi. / میں کراچی میں رہتا ہوں۔)</li>
+
+                    <li><strong>Wie alt sind Sie?</strong> <span class="pronunciation">(VAY ALT zint ZEE)</span><br>
+                        <span class="english">How old are you? (formal)</span> / <span class="urdu">آپ کی عمر کتنی ہے؟</span><br>
+                        <strong>Ich bin 25 Jahre alt.</strong> (I am 25 years old. / میری عمر 25 سال ہے۔)</li>
+
+                    <li><strong>Was sind Sie von Beruf?</strong> <span class="pronunciation">(VAS zint ZEE fon beh-ROOF)</span><br>
+                        <span class="english">What is your profession?</span> / <span class="urdu">آپ کیا کام کرتے ہیں؟</span><br>
+                        <strong>Ich bin Student/Studentin.</strong> (I am a student. / میں طالب علم ہوں۔)<br>
+                        <strong>Ich bin Lehrer/Lehrerin.</strong> (I am a teacher. / میں استاد ہوں۔)</li>
+
+                    <li><strong>Welche Sprachen sprechen Sie?</strong> <span class="pronunciation">(VEL-kheh SHPRAH-khen SHPRE-khen ZEE)</span><br>
+                        <span class="english">Which languages do you speak?</span> / <span class="urdu">آپ کون سی زبانیں بولتے ہیں؟</span><br>
+                        <strong>Ich spreche Urdu, Englisch und Deutsch.</strong> (I speak Urdu, English and German. / میں اردو، انگریزی اور جرمن بولتا ہوں۔)</li>
+
+                    <li><strong>Sind Sie verheiratet?</strong> <span class="pronunciation">(zint ZEE fer-HYE-rah-tet)</span><br>
+                        <span class="english">Are you married?</span> / <span class="urdu">کیا آپ شادی شدہ ہیں؟</span><br>
+                        <strong>Ja, ich bin verheiratet.</strong> (Yes, I am married. / جی ہاں، میں شادی شدہ ہوں۔)<br>
+                        <strong>Nein, ich bin ledig.</strong> (No, I am single. / نہیں، میں غیر شادی شدہ ہوں۔)</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>Complete Introduction Example:</h4>
+                <p><strong>German:</strong> Guten Tag! Ich heiße Ahmed Khan. Ich komme aus Pakistan, aus Karachi. Ich bin 28 Jahre alt. Ich bin Ingenieur von Beruf. Ich spreche Urdu, Englisch und ein bisschen Deutsch. Ich bin verheiratet und habe zwei Kinder.</p>
+
+                <p><strong class="english">English:</strong> Good day! My name is Ahmed Khan. I come from Pakistan, from Karachi. I am 28 years old. I am an engineer by profession. I speak Urdu, English and a little German. I am married and have two children.</p>
+
+                <p><strong class="urdu">Urdu:</strong> السلام علیکم! میرا نام احمد خان ہے۔ میں پاکستان سے ہوں، کراچی سے۔ میری عمر 28 سال ہے۔ میں پیشے سے انجینئر ہوں۔ میں اردو، انگریزی اور تھوڑی جرمن بولتا ہوں۔ میں شادی شدہ ہوں اور میرے دو بچے ہیں۔</p>
+            </div>
+
+            <h3>7.2 Common Exam Questions (عام امتحانی سوالات)</h3>
+
+            <h4>Personal Information (ذاتی معلومات)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German Question</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Wie ist Ihr Name?</strong></td>
+                        <td class="english">What is your name?</td>
+                        <td class="urdu">آپ کا نام کیا ہے؟</td>
+                        <td>Ich heiße Ahmed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wie ist Ihr Familienname?</strong></td>
+                        <td class="english">What is your surname?</td>
+                        <td class="urdu">آپ کا خاندانی نام کیا ہے؟</td>
+                        <td>Mein Familienname ist Khan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Woher kommen Sie?</strong></td>
+                        <td class="english">Where are you from?</td>
+                        <td class="urdu">آپ کہاں سے ہیں؟</td>
+                        <td>Ich komme aus Pakistan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wo leben Sie?</strong></td>
+                        <td class="english">Where do you live?</td>
+                        <td class="urdu">آپ کہاں رہتے ہیں؟</td>
+                        <td>Ich lebe in Karachi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wie ist Ihre Adresse?</strong></td>
+                        <td class="english">What is your address?</td>
+                        <td class="urdu">آپ کا پتہ کیا ہے؟</td>
+                        <td>Meine Adresse ist...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wie ist Ihre Telefonnummer?</strong></td>
+                        <td class="english">What is your telephone number?</td>
+                        <td class="urdu">آپ کا فون نمبر کیا ہے؟</td>
+                        <td>Meine Telefonnummer ist...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wie ist Ihre E-Mail-Adresse?</strong></td>
+                        <td class="english">What is your email address?</td>
+                        <td class="urdu">آپ کا ای میل ایڈریس کیا ہے؟</td>
+                        <td>Meine E-Mail ist...</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Family (خاندان)</h4>
+            <div class="card">
+                <ul class="content-list">
+                    <li><strong>Haben Sie Geschwister?</strong><br>
+                        <span class="english">Do you have siblings?</span> / <span class="urdu">کیا آپ کے بھائی بہن ہیں؟</span><br>
+                        Ja, ich habe einen Bruder und eine Schwester. (Yes, I have a brother and a sister. / جی ہاں، میرا ایک بھائی اور ایک بہن ہے۔)</li>
+
+                    <li><strong>Haben Sie Kinder?</strong><br>
+                        <span class="english">Do you have children?</span> / <span class="urdu">کیا آپ کے بچے ہیں؟</span><br>
+                        Ja, ich habe zwei Kinder. (Yes, I have two children. / جی ہاں، میرے دو بچے ہیں۔)</li>
+
+                    <li><strong>Wie heißt Ihr Vater/Ihre Mutter?</strong><br>
+                        <span class="english">What is your father's/mother's name?</span> / <span class="urdu">آپ کے والد/والدہ کا نام کیا ہے؟</span></li>
+                </ul>
+            </div>
+
+            <h4>Work & Study (کام اور تعلیم)</h4>
+            <div class="card">
+                <ul class="content-list">
+                    <li><strong>Was machen Sie?</strong><br>
+                        <span class="english">What do you do?</span> / <span class="urdu">آپ کیا کرتے ہیں؟</span><br>
+                        Ich bin Student. (I am a student. / میں طالب علم ہوں۔)</li>
+
+                    <li><strong>Wo arbeiten Sie?</strong><br>
+                        <span class="english">Where do you work?</span> / <span class="urdu">آپ کہاں کام کرتے ہیں؟</span><br>
+                        Ich arbeite bei Siemens. (I work at Siemens. / میں سیمنز میں کام کرتا ہوں۔)</li>
+
+                    <li><strong>Was studieren Sie?</strong><br>
+                        <span class="english">What do you study?</span> / <span class="urdu">آپ کیا پڑھتے ہیں؟</span><br>
+                        Ich studiere Medizin. (I study medicine. / میں طب کی تعلیم حاصل کر رہا ہوں۔)</li>
+                </ul>
+            </div>
+
+            <h4>Hobbies (مشاغل)</h4>
+            <div class="card">
+                <ul class="content-list">
+                    <li><strong>Was sind Ihre Hobbys?</strong><br>
+                        <span class="english">What are your hobbies?</span> / <span class="urdu">آپ کے مشاغل کیا ہیں؟</span><br>
+                        Meine Hobbys sind Lesen und Sport. (My hobbies are reading and sports. / میرے مشاغل پڑھنا اور کھیل ہیں۔)</li>
+
+                    <li><strong>Was machen Sie gern?</strong><br>
+                        <span class="english">What do you like to do?</span> / <span class="urdu">آپ کیا کرنا پسند کرتے ہیں؟</span><br>
+                        Ich spiele gern Fußball. (I like to play football. / میں فٹبال کھیلنا پسند کرتا ہوں۔)</li>
+                </ul>
+            </div>
+
+            <h4>Daily Routine (روزمرہ معمول)</h4>
+            <div class="card">
+                <ul class="content-list">
+                    <li><strong>Wann stehen Sie auf?</strong><br>
+                        <span class="english">When do you get up?</span> / <span class="urdu">آپ کب اٹھتے ہیں؟</span><br>
+                        Ich stehe um 7 Uhr auf. (I get up at 7 o'clock. / میں 7 بجے اٹھتا ہوں۔)</li>
+
+                    <li><strong>Was essen Sie zum Frühstück?</strong><br>
+                        <span class="english">What do you eat for breakfast?</span> / <span class="urdu">آپ ناشتے میں کیا کھاتے ہیں؟</span><br>
+                        Ich esse Brot mit Käse. (I eat bread with cheese. / میں پنیر کے ساتھ روٹی کھاتا ہوں۔)</li>
+
+                    <li><strong>Wann gehen Sie schlafen?</strong><br>
+                        <span class="english">When do you go to sleep?</span> / <span class="urdu">آپ کب سوتے ہیں؟</span><br>
+                        Ich gehe um 11 Uhr schlafen. (I go to sleep at 11 o'clock. / میں 11 بجے سوتا ہوں۔)</li>
+                </ul>
+            </div>
+
+            <h4>Time & Date (وقت اور تاریخ)</h4>
+            <div class="card">
+                <ul class="content-list">
+                    <li><strong>Wie spät ist es? / Wie viel Uhr ist es?</strong><br>
+                        <span class="english">What time is it?</span> / <span class="urdu">کتنے بجے ہیں؟</span><br>
+                        Es ist 3 Uhr. (It is 3 o'clock. / 3 بجے ہیں۔)</li>
+
+                    <li><strong>Welcher Tag ist heute?</strong><br>
+                        <span class="english">What day is today?</span> / <span class="urdu">آج کون سا دن ہے؟</span><br>
+                        Heute ist Montag. (Today is Monday. / آج پیر ہے۔)</li>
+
+                    <li><strong>Der wievielte ist heute?</strong><br>
+                        <span class="english">What is the date today?</span> / <span class="urdu">آج کون سی تاریخ ہے؟</span><br>
+                        Heute ist der 15. Mai. (Today is May 15th. / آج 15 مئی ہے۔)</li>
+                </ul>
+            </div>
+
+            <h4>Weather (موسم)</h4>
+            <div class="card">
+                <ul class="content-list">
+                    <li><strong>Wie ist das Wetter heute?</strong><br>
+                        <span class="english">How is the weather today?</span> / <span class="urdu">آج موسم کیسا ہے؟</span><br>
+                        Es ist sonnig. (It is sunny. / دھوپ ہے۔)<br>
+                        Es regnet. (It is raining. / بارش ہو رہی ہے۔)<br>
+                        Es ist kalt. (It is cold. / ٹھنڈ ہے۔)</li>
+                </ul>
+            </div>
+
+            <h4>Shopping (خریداری)</h4>
+            <div class="card">
+                <ul class="content-list">
+                    <li><strong>Was kostet das?</strong><br>
+                        <span class="english">How much does this cost?</span> / <span class="urdu">یہ کتنے کا ہے؟</span><br>
+                        Das kostet 10 Euro. (That costs 10 euros. / یہ 10 یورو کا ہے۔)</li>
+
+                    <li><strong>Wo kann ich das kaufen?</strong><br>
+                        <span class="english">Where can I buy this?</span> / <span class="urdu">میں یہ کہاں سے خرید سکتا ہوں؟</span><br>
+                        Im Supermarkt. (In the supermarket. / سپر مارکیٹ میں۔)</li>
+                </ul>
+            </div>
+
+            <h4>Directions (سمت)</h4>
+            <div class="card">
+                <ul class="content-list">
+                    <li><strong>Wo ist der Bahnhof?</strong><br>
+                        <span class="english">Where is the train station?</span> / <span class="urdu">ٹرین سٹیشن کہاں ہے؟</span><br>
+                        Der Bahnhof ist rechts. (The train station is on the right. / ٹرین سٹیشن دائیں طرف ہے۔)</li>
+
+                    <li><strong>Wie komme ich zum Supermarkt?</strong><br>
+                        <span class="english">How do I get to the supermarket?</span> / <span class="urdu">میں سپر مارکیٹ کیسے پہنچوں؟</span><br>
+                        Gehen Sie geradeaus. (Go straight ahead. / سیدھے جائیں۔)</li>
+                </ul>
+            </div>
+
+            <h3>7.3 Question Words (سوالیہ الفاظ)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>Pronunciation</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Wer?</strong></td>
+                        <td class="pronunciation">VAIR</td>
+                        <td class="english">Who?</td>
+                        <td class="urdu">کون؟</td>
+                        <td>Wer ist das? (Who is that? / یہ کون ہے؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Was?</strong></td>
+                        <td class="pronunciation">VAS</td>
+                        <td class="english">What?</td>
+                        <td class="urdu">کیا؟</td>
+                        <td>Was machst du? (What are you doing? / تم کیا کر رہے ہو؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wann?</strong></td>
+                        <td class="pronunciation">VAN</td>
+                        <td class="english">When?</td>
+                        <td class="urdu">کب؟</td>
+                        <td>Wann kommst du? (When are you coming? / تم کب آ رہے ہو؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wo?</strong></td>
+                        <td class="pronunciation">VOH</td>
+                        <td class="english">Where?</td>
+                        <td class="urdu">کہاں؟</td>
+                        <td>Wo wohnst du? (Where do you live? / تم کہاں رہتے ہو؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Woher?</strong></td>
+                        <td class="pronunciation">vo-HAIR</td>
+                        <td class="english">From where?</td>
+                        <td class="urdu">کہاں سے؟</td>
+                        <td>Woher kommst du? (Where are you from? / تم کہاں سے ہو؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wohin?</strong></td>
+                        <td class="pronunciation">vo-HIN</td>
+                        <td class="english">Where to?</td>
+                        <td class="urdu">کہاں کو؟</td>
+                        <td>Wohin gehst du? (Where are you going? / تم کہاں جا رہے ہو؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Warum?</strong></td>
+                        <td class="pronunciation">va-ROOM</td>
+                        <td class="english">Why?</td>
+                        <td class="urdu">کیوں؟</td>
+                        <td>Warum lernst du Deutsch? (Why do you learn German? / تم جرمن کیوں سیکھتے ہو؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wie?</strong></td>
+                        <td class="pronunciation">VEE</td>
+                        <td class="english">How?</td>
+                        <td class="urdu">کیسے؟</td>
+                        <td>Wie geht's? (How are you? / کیسے ہو؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wie viel?</strong></td>
+                        <td class="pronunciation">VEE FEEL</td>
+                        <td class="english">How much?</td>
+                        <td class="urdu">کتنا؟</td>
+                        <td>Wie viel kostet das? (How much does that cost? / یہ کتنے کا ہے؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wie viele?</strong></td>
+                        <td class="pronunciation">VEE FEE-leh</td>
+                        <td class="english">How many?</td>
+                        <td class="urdu">کتنے؟</td>
+                        <td>Wie viele Brüder hast du? (How many brothers do you have? / تمہارے کتنے بھائی ہیں؟)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Welcher/Welche/Welches?</strong></td>
+                        <td class="pronunciation">VEL-kher</td>
+                        <td class="english">Which?</td>
+                        <td class="urdu">کون سا؟</td>
+                        <td>Welches Buch liest du? (Which book are you reading? / تم کون سی کتاب پڑھ رہے ہو؟)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 8: COMMON PHRASES -->
+        <div id="section8" class="section">
+            <h2>SECTION 8: COMMON PHRASES FOR EXAM (امتحان کے لیے عام جملے)</h2>
+
+            <h3>8.1 Polite Expressions (شائستہ جملے)</h3>
+            <div class="grid-container">
+                <div class="card">
+                    <strong>Entschuldigung!</strong><br>
+                    <span class="english">Excuse me!</span> / <span class="urdu">معذرت!</span>
+                </div>
+                <div class="card">
+                    <strong>Es tut mir leid.</strong><br>
+                    <span class="english">I am sorry.</span> / <span class="urdu">مجھے افسوس ہے۔</span>
+                </div>
+                <div class="card">
+                    <strong>Kein Problem.</strong><br>
+                    <span class="english">No problem.</span> / <span class="urdu">کوئی مسئلہ نہیں۔</span>
+                </div>
+                <div class="card">
+                    <strong>Bitte schön.</strong><br>
+                    <span class="english">You're welcome.</span> / <span class="urdu">کوئی بات نہیں۔</span>
+                </div>
+                <div class="card">
+                    <strong>Danke schön.</strong><br>
+                    <span class="english">Thank you very much.</span> / <span class="urdu">بہت شکریہ۔</span>
+                </div>
+                <div class="card">
+                    <strong>Vielen Dank.</strong><br>
+                    <span class="english">Many thanks.</span> / <span class="urdu">بہت بہت شکریہ۔</span>
+                </div>
+                <div class="card">
+                    <strong>Gern geschehen.</strong><br>
+                    <span class="english">My pleasure.</span> / <span class="urdu">خوشی سے۔</span>
+                </div>
+                <div class="card">
+                    <strong>Wie bitte?</strong><br>
+                    <span class="english">Pardon?</span> / <span class="urdu">معاف کیجیے؟</span>
+                </div>
+                <div class="card">
+                    <strong>Ich verstehe nicht.</strong><br>
+                    <span class="english">I don't understand.</span> / <span class="urdu">میں نہیں سمجھا۔</span>
+                </div>
+                <div class="card">
+                    <strong>Können Sie das wiederholen?</strong><br>
+                    <span class="english">Can you repeat that?</span> / <span class="urdu">کیا آپ دہرا سکتے ہیں؟</span>
+                </div>
+                <div class="card">
+                    <strong>Sprechen Sie bitte langsam.</strong><br>
+                    <span class="english">Please speak slowly.</span> / <span class="urdu">براہ کرم آہستہ بولیں۔</span>
+                </div>
+                <div class="card">
+                    <strong>Alles Gute!</strong><br>
+                    <span class="english">All the best!</span> / <span class="urdu">بہت مبارک!</span>
+                </div>
+            </div>
+
+            <h3>8.2 Useful Classroom Phrases (کلاس روم کے مفید جملے)</h3>
+            <div class="card">
+                <ul class="content-list">
+                    <li><strong>Ich habe eine Frage.</strong><br>
+                        <span class="english">I have a question.</span> / <span class="urdu">میرا ایک سوال ہے۔</span></li>
+
+                    <li><strong>Ich weiß nicht.</strong><br>
+                        <span class="english">I don't know.</span> / <span class="urdu">میں نہیں جانتا۔</span></li>
+
+                    <li><strong>Wie sagt man...auf Deutsch?</strong><br>
+                        <span class="english">How do you say...in German?</span> / <span class="urdu">جرمن میں...کیسے کہتے ہیں؟</span></li>
+
+                    <li><strong>Was bedeutet das?</strong><br>
+                        <span class="english">What does that mean?</span> / <span class="urdu">اس کا کیا مطلب ہے؟</span></li>
+
+                    <li><strong>Ich bin fertig.</strong><br>
+                        <span class="english">I am finished.</span> / <span class="urdu">میرا کام ختم ہو گیا۔</span></li>
+
+                    <li><strong>Darf ich zur Toilette gehen?</strong><br>
+                        <span class="english">May I go to the toilet?</span> / <span class="urdu">کیا میں بیت الخلاء جا سکتا ہوں؟</span></li>
+                </ul>
+            </div>
+
+            <h3>8.3 Yes/No Answers (ہاں/نہیں جوابات)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>German</th>
+                        <th>English</th>
+                        <th>Urdu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Ja</strong></td><td class="english">Yes</td><td class="urdu">ہاں</td></tr>
+                    <tr><td><strong>Nein</strong></td><td class="english">No</td><td class="urdu">نہیں</td></tr>
+                    <tr><td><strong>Vielleicht</strong></td><td class="english">Maybe</td><td class="urdu">شاید</td></tr>
+                    <tr><td><strong>Natürlich</strong></td><td class="english">Of course</td><td class="urdu">یقیناً</td></tr>
+                    <tr><td><strong>Genau</strong></td><td class="english">Exactly</td><td class="urdu">بالکل</td></tr>
+                    <tr><td><strong>Richtig</strong></td><td class="english">Correct</td><td class="urdu">صحیح</td></tr>
+                    <tr><td><strong>Falsch</strong></td><td class="english">Wrong</td><td class="urdu">غلط</td></tr>
+                </tbody>
+            </table>
+
+            <h3>PRACTICE EXERCISES (مشق)</h3>
+            
+            <div class="card">
+                <h4>Exercise 1: Fill in the Personal Pronouns</h4>
+                <ol>
+                    <li>_____ bin Student. (I)</li>
+                    <li>_____ bist nett. (you - informal)</li>
+                    <li>_____ ist Lehrer. (he)</li>
+                    <li>_____ sind Freunde. (we)</li>
+                </ol>
+                <p><strong>Answers:</strong> 1. Ich, 2. Du, 3. Er, 4. Wir</p>
+            </div>
+
+            <div class="card">
+                <h4>Exercise 2: Conjugate "sein"</h4>
+                <ol>
+                    <li>Ich _____ müde.</li>
+                    <li>Du _____ glücklich.</li>
+                    <li>Er _____ Arzt.</li>
+                    <li>Wir _____ zu Hause.</li>
+                </ol>
+                <p><strong>Answers:</strong> 1. bin, 2. bist, 3. ist, 4. sind</p>
+            </div>
+
+            <div class="card">
+                <h4>Exercise 3: Add the correct article</h4>
+                <ol>
+                    <li>_____ Tisch (der/die/das)</li>
+                    <li>_____ Frau (der/die/das)</li>
+                    <li>_____ Buch (der/die/das)</li>
+                    <li>_____ Kinder (der/die/das)</li>
+                </ol>
+                <p><strong>Answers:</strong> 1. der, 2. die, 3. das, 4. die</p>
+            </div>
+
+            <h3>TIPS FOR A1 EXAM SUCCESS (A1 امتحان میں کامیابی کے لیے تجاویز)</h3>
+
+            <div class="grid-container">
+                <div class="tip">
+                    <h4>📖 Listening Section</h4>
+                    <ul class="content-list">
+                        <li>امتحان سے پہلے روزانہ جرمن سنیں<br><small>(Listen to German daily before the exam)</small></li>
+                        <li>سادہ جرمن ویڈیوز دیکھیں<br><small>(Watch simple German videos)</small></li>
+                        <li>جرمن گانے سنیں<br><small>(Listen to German songs)</small></li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <h4>📚 Reading Section</h4>
+                    <ul class="content-list">
+                        <li>روزانہ سادہ جرمن متن پڑھیں<br><small>(Read simple German texts daily)</small></li>
+                        <li>بنیادی الفاظ یاد کریں<br><small>(Memorize basic vocabulary)</small></li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <h4>✍️ Writing Section</h4>
+                    <ul class="content-list">
+                        <li>سادہ جملے لکھنے کی مشق کریں<br><small>(Practice writing simple sentences)</small></li>
+                        <li>اپنا تعارف لکھیں<br><small>(Write your introduction)</small></li>
+                        <li>روزانہ کے کاموں کے بارے میں لکھیں<br><small>(Write about daily activities)</small></li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <h4>🗣️ Speaking Section</h4>
+                    <ul class="content-list">
+                        <li>آئینے کے سامنے مشق کریں<br><small>(Practice in front of a mirror)</small></li>
+                        <li>اپنا تعارف بار بار بولیں<br><small>(Repeat your introduction many times)</small></li>
+                        <li>عام سوالات کے جواب تیار کریں<br><small>(Prepare answers to common questions)</small></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 style="text-align: center; margin-bottom: 20px;">📝 Final Note</h3>
+                <p style="text-align: center; font-size: 1.1em;">
+                    <strong>This website covers all essential topics for A1 German exam with Urdu and English translations. Practice regularly and you will succeed!</strong>
+                </p>
+                <p style="text-align: center; font-size: 1.1em; direction: rtl;">
+                    <strong>یہ ویب سائٹ A1 جرمن امتحان کے لیے تمام ضروری موضوعات کا احاطہ کرتی ہے۔ باقاعدگی سے مشق کریں اور آپ کامیاب ہوں گے!</strong>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+    <footer>
+        <div class="container">
+            <h3>Best of luck with your German learning!</h3>
+            <p>جرمن سیکھنے میں آپ کو خوش قسمتی کی دعا!</p>
+            <p>Viel Erfolg beim Deutschlernen!</p>
+            <p style="margin-top: 20px; opacity: 0.8;">© 2024 German A1 Learning for Pakistani Students</p>
+        </div>
+    </footer>
+
+    <script>
+        /* ============================================
+           PILL TAB NAVIGATION
+        ============================================ */
+        const navTrack  = document.getElementById('navTrack');
+        const navLinks  = navTrack.querySelectorAll('a[data-section]');
+
+        /* Smooth scroll to section when a pill is tapped */
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').replace('#', '');
+                const target   = document.getElementById(targetId);
+                if (target) {
+                    const navHeight = document.getElementById('mainNav').offsetHeight;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        /* ============================================
+           ACTIVE SECTION TRACKING + auto-scroll pill
+        ============================================ */
+        const sections = document.querySelectorAll('.section[id]');
+
+        function updateActiveLink() {
+            const navHeight = document.getElementById('mainNav').offsetHeight;
+            let currentSection = '';
+            sections.forEach(sec => {
+                const top = sec.getBoundingClientRect().top - navHeight - 20;
+                if (top <= 0) currentSection = sec.id;
+            });
+            navLinks.forEach(link => {
+                const wasActive = link.classList.contains('active');
+                const isActive  = link.dataset.section === currentSection;
+                link.classList.toggle('active', isActive);
+
+                /* Auto-scroll the pill into the center of the nav bar */
+                if (isActive && !wasActive) {
+                    link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        updateActiveLink();
+
+        /* ============================================
+           BACK TO TOP BUTTON
+        ============================================ */
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.pageYOffset > 300);
+        }, { passive: true });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* ============================================
+           TABLE → CARD CONVERSION FOR MOBILE
+        ============================================ */
+
+        /* Maps column index → css class to apply on value */
+        function getValueClass(headerText) {
+            const h = headerText.toLowerCase();
+            if (h.includes('pronunc')) return 'pronunciation';
+            if (h.includes('english')) return 'english';
+            if (h.includes('urdu'))    return 'urdu';
+            if (h.includes('example') || h.includes('usage')) return 'example';
+            return '';
+        }
+
+        /* Identify which column is the "German" word (first col usually) */
+        function buildCardsFromTable(table) {
+            const headers = [...table.querySelectorAll('thead th')].map(th => th.textContent.trim());
+            const rows    = [...table.querySelectorAll('tbody tr')];
+
+            const container = document.createElement('div');
+            container.className = 'mobile-cards';
+
+            rows.forEach(row => {
+                const cells = [...row.querySelectorAll('td')];
+                if (!cells.length) return;
+
+                const card = document.createElement('div');
+                card.className = 'row-card';
+
+                /* --- Header: German word (col 0) + Article (col 1 if labelled "Article") --- */
+                const header = document.createElement('div');
+                header.className = 'row-card-header';
+
+                const germanSpan = document.createElement('span');
+                germanSpan.className = 'row-card-german';
+                germanSpan.innerHTML = cells[0].innerHTML;
+                header.appendChild(germanSpan);
+
+                /* If second column is labelled "Article", show it as a badge */
+                let bodyStartIdx = 1;
+                if (headers[1] && headers[1].toLowerCase() === 'article' && cells[1]) {
+                    const articleBadge = document.createElement('span');
+                    articleBadge.className = 'row-card-article';
+                    articleBadge.textContent = cells[1].textContent.trim();
+                    header.appendChild(articleBadge);
+                    bodyStartIdx = 2;
+                }
+                card.appendChild(header);
+
+                /* --- Body: remaining columns as labelled rows --- */
+                const body = document.createElement('div');
+                body.className = 'row-card-body';
+
+                for (let i = bodyStartIdx; i < headers.length; i++) {
+                    if (!cells[i]) continue;
+                    const cellText = cells[i].innerHTML.trim();
+                    if (!cellText) continue;
+
+                    const field = document.createElement('div');
+                    field.className = 'row-card-field';
+
+                    const label = document.createElement('span');
+                    label.className = 'row-card-label';
+                    label.textContent = headers[i] || '';
+
+                    const value = document.createElement('span');
+                    value.className = 'row-card-value ' + getValueClass(headers[i] || '');
+                    value.innerHTML = cellText;
+
+                    field.appendChild(label);
+                    field.appendChild(value);
+                    body.appendChild(field);
+                }
+                card.appendChild(body);
+                container.appendChild(card);
+            });
+
+            return container;
+        }
+
+        /* Build cards for every table and insert after it */
+        const allTables = document.querySelectorAll('table');
+        allTables.forEach(table => {
+            table.classList.add('table-converted');
+            const cards = buildCardsFromTable(table);
+            table.parentNode.insertBefore(cards, table.nextSibling);
+        });
+
+        /* On desktop (>768px), hide cards; on mobile show cards, hide table.
+           The CSS @media rules handle this automatically via:
+             table.table-converted  → display:none  on mobile
+             .mobile-cards          → display:flex  on mobile / display:none on desktop
+        */
+    </script>
+</body>
+</html>
